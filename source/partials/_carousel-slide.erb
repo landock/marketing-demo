@@ -1,0 +1,22 @@
+<% data['carousel_slides'].each_with_index do |slide, index| %>
+  <div class="carousel-item <%= "carousel-item-#{index}" %> <%= "active" if index === 0 %> active">
+    <img class="first-slide" src="<%= slide['image']['url'] %>" alt="<%= slide['title'] %>">
+    <div class="container">
+      <div class="carousel-caption">
+        <h1>
+          <i class="<%= slide['icon_font_awesome'] %>"></i><%= slide['title'] %>
+        </h1>
+        <% if slide['copy'] %>
+          <p>
+            <%= slide['copy'] %>
+          </p>
+        <% end %>
+        <% if slide['buttons'] %>
+          <p>
+            <%= partial("partials/buttons", :locals => { :data => slide['buttons'] }) %>
+          </p>
+        <% end %>
+      </div>
+    </div>
+  </div>
+<% end %>

@@ -1,0 +1,20 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  @include flama-basic;
+  background-color: $white;
+  color: $grey;
+}
+
+a {
+  color: rgba($black, .7);
+
+  &:focus,
+  &:hover {
+    color: rgba($black, .6);
+  }
+}

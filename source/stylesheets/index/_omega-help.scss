@@ -1,0 +1,23 @@
+.omega-help-container {
+  background: url('../images/index/omega-help-bkg.jpg') 0 0 no-repeat $white;
+  background-size: contain;
+  height: 1164px;
+  margin-top: 12rem;
+
+  .row {
+    margin: 0 auto;
+  }
+}
+
+.omega-box-wrapper {
+  display: flex;
+  margin-top: 2rem;
+
+  .text {
+    display: flex;
+    flex-flow: column;
+    height: 370px;
+    justify-content: center;
+    margin-left: 2rem;
+  }
+}

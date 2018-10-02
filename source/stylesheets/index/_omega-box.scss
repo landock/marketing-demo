@@ -1,0 +1,21 @@
+.omega-box-container {
+  display: flex;
+  margin-top: 12rem;
+
+  .row {
+    margin: 0 auto;
+  }
+}
+
+.omega-box-wrapper {
+  display: flex;
+  margin: 2rem auto;
+
+  .text {
+    display: flex;
+    flex-flow: column;
+    height: 370px;
+    justify-content: center;
+    margin-left: 2rem;
+  }
+}

@@ -1,0 +1,9 @@
+.top-nav-btn {
+  width: 210px;
+}
+
+.navbar-nav--right {
+  @media (max-width: 992px) {
+    flex-direction: column-reverse;
+  }
+}

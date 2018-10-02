@@ -1,15 +1,13 @@
-.omega-help-container {
-  background: url('../images/index/omega-help-bkg.jpg') 0 0 no-repeat $white;
-  background-size: contain;
-  height: 100vw;
-  margin-top: 12rem;
+.omega-hey-container {
+  background-image: radial-gradient(#27253c, #1d1a21); // center, outside color
+  height: 1164px;
 
   .row {
     margin: 0 auto;
   }
 }
 
-.omega-box-wrapper {
+.omega-hey-wrapper {
   display: flex;
   margin-top: 2rem;
 

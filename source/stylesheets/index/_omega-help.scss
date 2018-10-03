@@ -9,15 +9,37 @@
   }
 }
 
-.omega-box-wrapper {
-  display: flex;
-  margin-top: 2rem;
+.omega-help-wrapper {
+  text-align:center;
+}
+.animation-container {
+  padding:10px;
+  display:flex;
+  width: 80%;
+  margin:30% auto 0;
+  align-items: flex-start;
 
-  .text {
-    display: flex;
-    flex-flow: column;
-    height: 370px;
-    justify-content: center;
-    margin-left: 2rem;
+  img {
+    width: 100%;
+  }
+
+  & > div {
+    flex:1;
+    text-align: center;
+    width: 31%;
+    padding:10px;
+  }
+
+}
+
+.video-wrapper{
+  width: 40%;
+  overflow: hidden;
+  max-height:600px;
+
+  video {
+    height: 700px;
+    transform: translateX(-340px);
   }
 }
+

@@ -1,9 +1,14 @@
 .omega-hey-container {
   background-image: radial-gradient(#27253c, #1d1a21); // center, outside color
+  color: $white;
   height: 1164px;
 
   .row {
     margin: 0 auto;
+  }
+
+  img {
+    width: 100%;
   }
 }
 

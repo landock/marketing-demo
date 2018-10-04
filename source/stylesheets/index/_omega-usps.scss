@@ -1,8 +1,4 @@
-.omega-hey-container {
-  background-image: radial-gradient(#27253c, #1d1a21); // center, outside color
-  color: $white;
-  min-height: 700px;
-
+.omega-usps-container {
   .row {
     margin: 0 auto;
   }
@@ -12,15 +8,19 @@
   }
 }
 
-.omega-hey-wrapper {
+
+.omega-usps-wrapper {
   display: flex;
   margin-top: 2rem;
 
   .text {
     display: flex;
     flex-flow: column;
-    height: 370px;
     justify-content: center;
     margin-left: 2rem;
+  }
+
+  &:nth-child(odd) {
+    flex-flow: row-reverse;
   }
 }

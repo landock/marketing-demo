@@ -1,5 +1,6 @@
 $(document).ready(function(){
   const videoPanelClient = videoPanel();
+  const boxPanelClient = boxPanel();
   const helpPanelClient = helpPanel();
 
   $('.ga-click-event').on('click', function() {
@@ -15,6 +16,7 @@ $(document).ready(function(){
 
   function resizeHandler() {
     videoPanelClient.scroller.resize();
+    boxPanelClient.scroller.resize();
     helpPanelClient.scroller.resize();
   }
 
@@ -22,8 +24,38 @@ $(document).ready(function(){
 
 });
 
-function helpPanel(){
 
+function boxPanel(){
+  
+  const boxPanelScroller = scrollama();
+  const tl = new TimelineMax({useFrames:false, paused:true, smoothChildTiming:true });
+
+	
+  tl.fromTo('.omega',0.2, {display:'none'}, {display:'inline-block'})
+  tl.fromTo('.whats-the' ,0.2, {display:'none'}, {display: 'inline-block'});
+  //tl.call(addMarkup, [tl]);
+  tl.to($('.text-fill'), 0.2, { textContent:faker.random.word()})
+  tl.to($('.text-fill'), 0.2, {textContent: ''});
+  tl.to('.last-item', 0.1, {display: 'inline-block'});
+
+  boxPanelScroller.setup({
+    step: '.omega-box-wrapper .text',
+    offset: 0.2,
+    debug:true
+  })
+    .onStepEnter(event => {
+      tl.restart();
+      })
+    .onStepExit(event => {
+      tl.restart().reverse();
+    })
+  ;
+  return {
+    scroller: boxPanelScroller,
+    timeline: tl
+  };
+}
+function helpPanel(){
   const helpPanelScroller = scrollama();
   const tl = new TimelineMax({useFrames:true, paused:true, smoothChildTiming:true });
 
@@ -32,8 +64,9 @@ function helpPanel(){
 
   helpPanelScroller
     .setup({
-      step: '.animation-container',
-      offset: 0.9,
+      step: [$('.help-animation-container')[0]],
+      offset: 0.7,
+      debug: true,
       progress: true,
       threshold: 1
     })
@@ -55,6 +88,7 @@ function videoPanel(){
   videoScroller
     .setup({
       step:[$('.video-wrapper video')[0]],
+      debug: true,
       offset: 0.2
     })
     .onStepEnter(event => {

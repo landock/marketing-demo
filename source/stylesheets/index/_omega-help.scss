@@ -1,7 +1,6 @@
 .omega-help-container {
   background: url('../images/index/omega-help-bkg.jpg') 0 0 no-repeat $white;
   background-size: contain;
-  height: 100vw;
   margin-top: 12rem;
 
   .row {
@@ -12,12 +11,14 @@
 .omega-help-wrapper {
   text-align:center;
 }
-.animation-container {
-  padding:10px;
+
+.help-animation-container {
   display:flex;
-  width: 80%;
+  align-items: center;
+  justify-content: space-around;
+  width: 90%;
   margin:30% auto 0;
-  align-items: flex-start;
+  padding:10px;
 
   img {
     width: 100%;
@@ -25,8 +26,8 @@
 
   & > div {
     flex:1;
-    text-align: center;
     width: 31%;
+    text-align: center;
     padding:10px;
   }
 

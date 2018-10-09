@@ -1,17 +1,4 @@
-.section--title-subtitle {
-  margin: 10% auto;
-  text-align: center;
-
-  h3 {
-    font-size: 3rem;
-  }
-
-  p {
-    font-size: 1.5rem;
-    font-weight: bold;
-  }
-}
-
+@import 'general';
 @import 'omega-box';
 @import 'omega-help';
 @import 'omega-hey';

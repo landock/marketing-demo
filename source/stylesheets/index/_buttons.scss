@@ -1,18 +1,20 @@
-.omega-app-songs-container {
-  background: url('../images/index/omega-app-background-adele-hello.jpg') 0 0 no-repeat $white;
+.buttons-container {
+  background: url('../images/index/buttons-purp.jpg') 0 0 no-repeat $white;
   background-size: contain;
+  margin-bottom: 20%;
   margin-top: 6rem;
+  min-height: 937px;
 
   .row {
     margin: 0 auto;
   }
 
   .section--title-subtitle {
-    margin-top: 40%;
+    // margin-top: 40%;
   }
 }
 
-.app-songs-animation-container {
+.buttons-animation-container {
   bottom: -20%;
   margin: 0 auto;
   position: relative;

@@ -2,10 +2,14 @@
   background: url('../images/index/omega-app-background-adele-hello.jpg') 0 0 no-repeat $white;
   background-size: contain;
   margin-bottom: 20%;
-  margin-top: 12rem;
+  margin-top: 6rem;
 
   .row {
     margin: 0 auto;
+  }
+
+  .section--title-subtitle {
+    margin-top: 40%;
   }
 }
 
@@ -20,8 +24,4 @@
     height: 100%;
     width: 100%;
   }
-}
-
-.section--title-subtitle.app-songs {
-  margin-top: 40%;
 }

@@ -20,12 +20,12 @@
   }
 
   .text-muted {
-     & > div {
+    & > div {
       display: inline-block;
-     }
+    }
 
-     .last-item {
-       display: none;
-     }
+    .last-item {
+      display: none;
+    }
   }
 }

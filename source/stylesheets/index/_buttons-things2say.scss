@@ -1,0 +1,16 @@
+.buttons-things2say-container {
+  display: flex;
+  margin-top: 12rem;
+
+  .row {
+    margin: 0 auto;
+  }
+}
+
+.buttons-things2say-wrapper {
+  .text {
+    bottom: -30%;
+    right: 40%;
+    z-index: 1;
+  }
+}

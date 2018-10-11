@@ -17,13 +17,15 @@
     height: 370px;
     justify-content: center;
     margin-left: 2rem;
-    .text-muted{
-     & > div {
-      display:inline-block;
-     } 
-     .last-item {
-       display:none;
-     }
+
+    .text-muted {
+       & > div {
+        display:inline-block;
+       }
+
+      .last-item {
+        display:none;
+      }
     }
   }
 }

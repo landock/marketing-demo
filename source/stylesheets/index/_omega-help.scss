@@ -9,38 +9,37 @@
 }
 
 .omega-help-wrapper {
-  text-align:center;
+  text-align: center;
 }
 
 .help-animation-container {
-  display:flex;
   align-items: center;
+  display: flex;
   justify-content: space-around;
+  margin: 20% auto 5%;
+  padding: 10px;
   width: 90%;
-  margin:30% auto 0;
-  padding:10px;
 
   img {
     width: 100%;
   }
 
   & > div {
-    flex:1;
-    width: 31%;
+    flex: auto;
+    padding: 10px;
     text-align: center;
-    padding:10px;
+    width: 31%;
   }
 
 }
 
-.video-wrapper{
-  width: 40%;
+.video-wrapper {
+  max-height: 600px;
   overflow: hidden;
-  max-height:600px;
+  width: 40%;
 
   video {
     height: 700px;
     transform: translateX(-340px);
   }
 }
-

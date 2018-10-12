@@ -3,14 +3,13 @@
   margin-top: 12rem;
 
   .row {
-    margin: 0 auto;
+    margin: 0;
   }
-}
 
-.buttons-things2say-wrapper {
-  .text {
-    bottom: -30%;
-    right: 40%;
-    z-index: 1;
+  .section--title-subtitle {
+    bottom: 7%;
+    left: 50%;
+    position: absolute;
+    text-align: left;
   }
 }

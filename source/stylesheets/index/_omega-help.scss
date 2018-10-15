@@ -33,13 +33,28 @@
 
 }
 
-.video-wrapper {
-  max-height: 600px;
-  overflow: hidden;
-  width: 40%;
+.video-wrapper{
+  height:540px;
+  width: 418px;
 
   video {
-    height: 700px;
-    transform: translateX(-340px);
+    height:540px;
+    width: 418px;
+  }
+
+  .video-sprite-sheet{
+    overflow: hidden;
+    position:relative;
+    display:inline-block;
+    line-height:0;
+    & > canvas {
+        position: absolute;
+        display: inline-block;
+        visibility: hidden;
+        border: 0;
+    }
+  }
+
+  canvas {
   }
 }

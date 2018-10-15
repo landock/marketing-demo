@@ -1,7 +1,8 @@
 $(document).ready(function(){
   const videoPanelClient = videoPanel();
-  const boxPanelClient = boxPanel();
+  // const boxPanelClient = boxPanel();
   const helpPanelClient = helpPanel();
+  const heyPanelClient = heyPanel();
 
   $('.ga-click-event').on('click', function() {
     var label = $(this).attr('ga-label');
@@ -16,8 +17,9 @@ $(document).ready(function(){
 
   function resizeHandler() {
     videoPanelClient.scroller.resize();
-    boxPanelClient.scroller.resize();
+    // boxPanelClient.scroller.resize();
     helpPanelClient.scroller.resize();
+    heyPanelClient.scroller.resize();
   }
 
   window.addEventListener("resize", _.debounce(resizeHandler, 200));
@@ -28,26 +30,32 @@ $(document).ready(function(){
 function boxPanel(){
   
   const boxPanelScroller = scrollama();
-  const tl = new TimelineMax({useFrames:false, paused:true, smoothChildTiming:true });
 
-	
+  function changeText() {
+	  $('.text-fill').text(faker.random.word());
+  }
+
+  function emptyText() {
+	  $('.text-fill').text('');
+  }
+
+  const tl = new TimelineMax({onStart: emptyText, paused: true});
+
   tl.fromTo('.omega',0.2, {display:'none'}, {display:'inline-block'})
   tl.fromTo('.whats-the' ,0.2, {display:'none'}, {display: 'inline-block'});
-  //tl.call(addMarkup, [tl]);
-  tl.to($('.text-fill'), 0.2, { textContent:faker.random.word()})
-  tl.to($('.text-fill'), 0.2, {textContent: ''});
-  tl.to('.last-item', 0.1, {display: 'inline-block'});
+  tl.call(changeText, [], this, "+=0.2");
+  tl.call(function(){$('.text-fill').text('weather?')}, [], this, "+=0.2");
+  tl.to('.last-item', 0.1, {x: -5, display: 'inline-block'}, "+=0.1");
 
   boxPanelScroller.setup({
     step: '.omega-box-wrapper .text',
-    offset: 0.2,
-    debug:true
+    offset: 0.2
   })
     .onStepEnter(event => {
       tl.restart();
       })
     .onStepExit(event => {
-      tl.restart().reverse();
+      tl.pause();
     })
   ;
   return {
@@ -55,6 +63,7 @@ function boxPanel(){
     timeline: tl
   };
 }
+
 function helpPanel(){
   const helpPanelScroller = scrollama();
   const tl = new TimelineMax({useFrames:true, paused:true, smoothChildTiming:true });
@@ -65,8 +74,8 @@ function helpPanel(){
   helpPanelScroller
     .setup({
       step: [$('.help-animation-container')[0]],
-      offset: 0.7,
-      debug: true,
+      offset: 0.95,
+      debug:true,
       progress: true,
       threshold: 1
     })
@@ -80,36 +89,104 @@ function helpPanel(){
   }
 }
 
-function videoPanel(){
+function heyPanel(){
 
-  var videoElement = document.getElementsByTagName("video")[0];
-  const videoScroller = scrollama();
-  let playPromise = null;
-  videoScroller
+  const heyScroller = scrollama();
+  const outerCircle = new TimelineMax({yoyo:true, repeat: 7});
+  outerCircle.to('.outer-circle', 0.3, {ease:Bounce.easeIn, strokeWidth: 35});
+  const innerCircle = new TimelineMax({yoyo:true, repeat: 2});
+  innerCircle.set('.inner-circle', {strokeWidth: 10});
+  innerCircle.fromTo('.inner-circle', 0.3, {ease:Bounce.easeOut,strokeWidth: 10}, {ease:Bounce.easeOut,strokeWidth: 24});
+  innerCircle.to('.inner-circle', 0.3, {ease:Bounce.easeOut,strokeWidth: 10}, "-=0.2");
+  const mainAnimation = new TimelineMax({paused: true});
+  mainAnimation.add(outerCircle);
+  mainAnimation.add(innerCircle, "-=1.6");
+
+  heyScroller
     .setup({
-      step:[$('.video-wrapper video')[0]],
-      debug: true,
+      step:[$('.omega-hey-container')[0]],
+      debug:true,
       offset: 0.2
     })
-    .onStepEnter(event => {
-      try{
-        playPromise = videoElement.play();    
-      } catch(error) {
-        console.log(error);
-      }
-    })
-    .onStepExit(event => {
-      try{
-        playPromise.then(video => {
-          videoElement.pause();
-          videoElement.currentTime = 0;    
-        })
-      } catch(error) {
-        console.log(error);
-      }
-    });
+  .onStepEnter(event=>{
+    mainAnimation.restart();
+  })
+  .onStepExit(event => {
+
+    mainAnimation.seek(0);
+    mainAnimation.pause();
+  });
+
   return {
-    scroller: videoScroller,
-    timeline:  new TimelineMax({useFrames:true, paused:true, smoothChildTiming:true })
+    scroller: heyScroller,
+    timeline:  mainAnimation
+  }
+}
+
+function update(){
+  let video = document.getElementsByTagName("video")[0];
+  if(video.currentTime === video.duration) return;
+	const newCanvas = document.createElement('canvas');
+	const element = $('.video-sprite-sheet');
+	let newCtx = newCanvas.getContext('2d');
+  console.log(video.videoWidth);
+  newCanvas.width = video.videoWidth;
+  newCanvas.height= video.videoHeight;
+	newCtx.imageSmoothingEnabled = true;
+	newCtx.drawImage(video, 0, 0, video.videoWidth, video.videoHeight);   
+
+	element.append(newCanvas);
+
+	requestAnimationFrame(update); // wait for t
+}
+
+function videoPanel(){
+
+  const scroller = scrollama();
+  const M2 = new TimelineMax({ useFrames: true, paused:true});
+  const videoElement = document.getElementsByTagName("video")[0];
+
+  $(videoElement).one('play', function() {
+    update(); //Start rendering
+  });
+
+  $(videoElement).one('ended', function() {
+	  
+    let container = $('.video-sprite-sheet');
+	  let canvases = container.find('canvas');
+	  let height = container[0].scrollHeight;
+
+	  let lastCanvas = canvases.last();
+	  let canvasCount = canvases.length;
+    let duration = 10;
+    console.log(lastCanvas, canvasCount);
+    var hidden = { position: 'absolute', visibility: 'hidden' };
+    var visible = { position: 'static', visibility: 'visible' };
+    M2.set(lastCanvas, hidden)
+      .staggerTo(canvases, 0, visible, duration, 0)
+    // hide all the elements except lastimage - it will be hidden on repeat if needed at the same time as first is shown
+      .staggerTo(canvases.not(lastCanvas), 0, $.extend(hidden, { immediateRender: false }), duration, duration)
+    // add an 'empty' set after lastimage is made visible - this adds padding at the end of the timeline so lastimage is displayed for the correct duration before the repeat
+      .set({}, {}, "+="+duration);
+	  
+	  scroller.setup({
+		  step: '.video-sprite-sheet',
+		  progress: true,
+      threshold:10,
+		  offset: 0.3,
+		  debug:true
+	  })
+	    .onStepEnter(event => {
+		    // M2.play();
+        })
+	    .onStepProgress(event => {
+		    M2.progress(event.progress);
+    });
+    $(this).hide();
+  });
+
+  return {
+    scroller: scroller,
+    timeline:  M2
   }
 }

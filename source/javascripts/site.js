@@ -1,6 +1,10 @@
+import 'intersection-observer';
+import BoxAnimation from './boxAnimation.js';
+
 $(document).ready(function(){
   const videoPanelClient = videoPanel();
-  // const boxPanelClient = boxPanel();
+  const boxPanelClient = new BoxAnimation();
+
   const helpPanelClient = helpPanel();
   const heyPanelClient = heyPanel();
 
@@ -17,7 +21,7 @@ $(document).ready(function(){
 
   function resizeHandler() {
     videoPanelClient.scroller.resize();
-    // boxPanelClient.scroller.resize();
+    boxPanelClient.scroller.resize();
     helpPanelClient.scroller.resize();
     heyPanelClient.scroller.resize();
   }
@@ -27,42 +31,6 @@ $(document).ready(function(){
 });
 
 
-function boxPanel(){
-  
-  const boxPanelScroller = scrollama();
-
-  function changeText() {
-	  $('.text-fill').text(faker.random.word());
-  }
-
-  function emptyText() {
-	  $('.text-fill').text('');
-  }
-
-  const tl = new TimelineMax({onStart: emptyText, paused: true});
-
-  tl.fromTo('.omega',0.2, {display:'none'}, {display:'inline-block'})
-  tl.fromTo('.whats-the' ,0.2, {display:'none'}, {display: 'inline-block'});
-  tl.call(changeText, [], this, "+=0.2");
-  tl.call(function(){$('.text-fill').text('weather?')}, [], this, "+=0.2");
-  tl.to('.last-item', 0.1, {x: -5, display: 'inline-block'}, "+=0.1");
-
-  boxPanelScroller.setup({
-    step: '.omega-box-wrapper .text',
-    offset: 0.2
-  })
-    .onStepEnter(event => {
-      tl.restart();
-      })
-    .onStepExit(event => {
-      tl.pause();
-    })
-  ;
-  return {
-    scroller: boxPanelScroller,
-    timeline: tl
-  };
-}
 
 function helpPanel(){
   const helpPanelScroller = scrollama();

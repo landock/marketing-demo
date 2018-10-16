@@ -14,4 +14,18 @@
     right: 40%;
     z-index: 1;
   }
+
+  input {
+    margin: 1rem 0;
+    min-width: 40%;
+    padding: 10px;
+  }
+
+  button {
+    background: $grey-dark;
+    border: 0;
+    color: $white;
+    font-weight: bold;
+    padding: 1rem 3rem;
+  }
 }

@@ -7,14 +7,18 @@ end
 
 activate :directory_indexes
 activate :livereload
-
+activate :external_pipeline,
+         :name => "rollup",
+         :command => (build? ? 'rollup -c' : 'rollup -c -w'),
+         :source => 'build/javascripts/bundle.js',
+         :latency => 2
 # Layouts
 # https://middlemanapp.com/basics/layouts/
 
 # Per-page layout changes
-page '/*.xml', layout: false
-page '/*.json', layout: false
-page '/*.txt', layout: false
+page "/*.xml", layout: false
+page "/*.json", layout: false
+page "/*.txt", layout: false
 
 # With alternative layout
 # page '/path/to/file.html', layout: 'other_layout'
@@ -56,8 +60,8 @@ page '/*.txt', layout: false
 # f.cda_query = {select: "fields", include: 1, locale: '*'}
 
 activate :contentful do |f|
-  f.space         = {pages: ENV["CONTENTFUL_SPACE_ID"]}
-  f.access_token  = ENV["CONTENTFUL_CDAPI_ACCESS_TOKEN"]
+  f.space = {pages: ENV["CONTENTFUL_SPACE_ID"]}
+  f.access_token = ENV["CONTENTFUL_CDAPI_ACCESS_TOKEN"]
   f.cda_query = {select: "fields", include: 1}
-  f.content_types = { page: 'page'}
+  f.content_types = {page: "page"}
 end

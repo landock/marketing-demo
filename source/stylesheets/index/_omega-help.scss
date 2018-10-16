@@ -36,17 +36,17 @@
 .video-wrapper{
   height:540px;
   width: 418px;
-
+  overflow: hidden;
   video {
     height:540px;
     width: 418px;
   }
 
   .video-sprite-sheet{
-    overflow: hidden;
     position:relative;
     display:inline-block;
     line-height:0;
+    overflow: hidden;
     & > canvas {
         position: absolute;
         display: inline-block;

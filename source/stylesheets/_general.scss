@@ -5,8 +5,7 @@ body {
 }
 
 body {
-  // @include flama-basic;
-  @include ssn1--bold;
+  @include ssn1--book;
   background-color: $white;
   color: $grey;
 }

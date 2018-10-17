@@ -34,27 +34,30 @@
 }
 
 .video-wrapper{
-  height:540px;
+  height: 540px;
   width: 418px;
 
   video {
-    height:540px;
+    height: 540px;
     width: 418px;
+
+    // mobile
+    // display: none;
   }
 
   .video-sprite-sheet{
+    display: inline-block;
+    line-height: 0;
     overflow: hidden;
-    position:relative;
-    display:inline-block;
-    line-height:0;
+    position: relative;
+
     & > canvas {
-        position: absolute;
-        display: inline-block;
-        visibility: hidden;
-        border: 0;
+      border: 0;
+      display: inline-block;
+      position: absolute;
+      visibility: hidden;
     }
   }
 
-  canvas {
-  }
+  // canvas {}
 }

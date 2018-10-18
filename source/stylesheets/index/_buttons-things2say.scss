@@ -15,7 +15,7 @@
     width: 80%;
 
     @include media-breakpoint-down(sm) {
-      left: -16%;
+      left: -26%;
       width: 112%;
     }
   }
@@ -27,7 +27,22 @@
     text-align: left;
 
     @include media-breakpoint-down(sm) {
-      bottom: 2%;
+      bottom: -3%;
+      left: 42%;
+      margin-top: 0;
+    }
+
+    h3 {
+      @include media-breakpoint-down(sm) {
+        font-size: 2rem;
+      }
+    }
+
+    p {
+      @include media-breakpoint-down(sm) {
+        font-size: 1.5rem;
+        line-height: 1.5rem;
+      }
     }
   }
 }

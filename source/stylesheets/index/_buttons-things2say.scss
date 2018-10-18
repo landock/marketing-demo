@@ -3,13 +3,31 @@
   margin-top: 12rem;
 
   .row {
-    // margin: 0;
+    margin: 0 auto;
+  }
+
+  .col {
+    margin: 0 auto;
+  }
+
+  img {
+    position: relative;
+    width: 80%;
+
+    @include media-breakpoint-down(sm) {
+      left: -16%;
+      width: 112%;
+    }
   }
 
   .section--title-subtitle {
-    bottom: 7%;
+    bottom: -7%;
     left: 50%;
     position: absolute;
     text-align: left;
+
+    @include media-breakpoint-down(sm) {
+      bottom: 2%;
+    }
   }
 }

@@ -2,6 +2,10 @@
   display: flex;
   margin-top: 12rem;
 
+  @include media-breakpoint-down(md) {
+    margin-top: 7rem;
+  }
+
   .row {
     margin: 0 auto;
   }
@@ -13,10 +17,6 @@
   img {
     position: relative;
     width: 80%;
-
-    @include media-breakpoint-down(md) {
-      // width: 80%;
-    }
 
     @include media-breakpoint-down(sm) {
       left: -26%;

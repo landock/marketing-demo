@@ -31,14 +31,12 @@
     text-align: left;
 
     @include media-breakpoint-down(md) {
-      // bottom: -10%;
       margin-top: 0;
     }
 
     @include media-breakpoint-down(sm) {
       bottom: -3%;
       left: 42%;
-      // margin-top: 0;
     }
 
     h3 {

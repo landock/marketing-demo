@@ -14,6 +14,10 @@
     position: relative;
     width: 80%;
 
+    @include media-breakpoint-down(md) {
+      // width: 80%;
+    }
+
     @include media-breakpoint-down(sm) {
       left: -26%;
       width: 112%;
@@ -26,20 +30,29 @@
     position: absolute;
     text-align: left;
 
-    @include media-breakpoint-down(sm) {
-      bottom: -3%;
-      left: 42%;
+    @include media-breakpoint-down(md) {
+      // bottom: -10%;
       margin-top: 0;
     }
 
+    @include media-breakpoint-down(sm) {
+      bottom: -3%;
+      left: 42%;
+      // margin-top: 0;
+    }
+
     h3 {
+      @include media-breakpoint-down(md) {
+        font-size: 2.5rem;
+      }
+
       @include media-breakpoint-down(sm) {
         font-size: 2rem;
       }
     }
 
     p {
-      @include media-breakpoint-down(sm) {
+      @include media-breakpoint-down(md) {
         font-size: 1.5rem;
         line-height: 1.5rem;
       }

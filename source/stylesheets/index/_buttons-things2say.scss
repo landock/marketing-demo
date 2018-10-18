@@ -1,9 +1,12 @@
 .buttons-things2say-container {
   display: flex;
-  margin-top: 12rem;
 
   @include media-breakpoint-down(md) {
     margin-top: 7rem;
+  }
+
+  @include media-breakpoint-down(sm) {
+    margin-top: 4rem;
   }
 
   .row {
@@ -15,7 +18,7 @@
   }
 
   img {
-    left: 7%;
+    left: 10%;
     position: relative;
     width: 80%;
 

@@ -9,7 +9,7 @@ activate :directory_indexes
 activate :livereload
 activate :external_pipeline,
          :name => "rollup",
-         :command => (build? ? 'rollup -c' : 'rollup -c -w'),
+         :command => (build? ? 'npx rollup -c' : 'npx rollup -c -w'),
          :source => 'build/javascripts/bundle.js',
          :latency => 2
 # Layouts

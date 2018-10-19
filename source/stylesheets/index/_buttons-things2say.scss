@@ -1,15 +1,63 @@
 .buttons-things2say-container {
   display: flex;
-  margin-top: 12rem;
+
+  @include media-breakpoint-down(md) {
+    margin-top: 7rem;
+  }
+
+  @include media-breakpoint-down(sm) {
+    margin-top: 4rem;
+  }
 
   .row {
-    // margin: 0;
+    margin: 0 auto;
+  }
+
+  .col {
+    margin: 0 auto;
+  }
+
+  img {
+    left: 10%;
+    position: relative;
+    width: 80%;
+
+    @include media-breakpoint-down(sm) {
+      left: -26%;
+      width: 112%;
+    }
   }
 
   .section--title-subtitle {
-    bottom: 7%;
-    left: 50%;
+    bottom: -7%;
+    left: 57%;
     position: absolute;
     text-align: left;
+
+    @include media-breakpoint-down(md) {
+      margin-top: 0;
+    }
+
+    @include media-breakpoint-down(sm) {
+      bottom: -3%;
+      left: 42%;
+    }
+
+    h3 {
+      @include media-breakpoint-down(md) {
+        font-size: 2.5rem;
+      }
+
+      @include media-breakpoint-down(sm) {
+        font-size: 2rem;
+      }
+    }
+
+    p {
+      @include media-breakpoint-down(md) {
+        font-size: 1.5rem;
+        line-height: 1.5rem;
+      }
+    }
   }
 }

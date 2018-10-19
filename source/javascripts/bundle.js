@@ -24377,15 +24377,16 @@
 	function VideoAnimation() {
 	  var _this = this;
 
-	  var videoElement = document.getElementsByTagName("video")[0];
+	  var videoElement = document.getElementById("box-rotate");
 	  this.timeline = new TimelineMax({ paused: true });
 	  this.scroller = scrollama();
 
-	  $(videoElement).one('play', function () {
+	  $('#base-ring-glow').one('canplay', function () {
+	    videoElement.play();
 	    update$1(); //Start rendering
 	  });
 
-	  $(videoElement).on('ended', function () {
+	  $(videoElement).one('ended', function () {
 	    var container = $('.video-sprite-sheet');
 	    var canvases = container.find('canvas');
 	    var height = container[0].scrollHeight;
@@ -24418,7 +24419,9 @@
 	}
 
 	function update$1() {
-	  var video = document.getElementsByTagName("video")[0];
+
+	  var video = document.getElementById("box-rotate");
+
 	  if (video.currentTime === video.duration) return;
 
 	  var newCanvas = document.createElement('canvas');
@@ -110488,41 +110491,6 @@
 	module['exports'] = faker;
 	});
 
-	function BoxAnimation() {
-	  var _this = this;
-
-	  this.timeline = new TimelineMax({ paused: true, onStart: emptyText });
-	  this.timeline.fromTo('.omega', 0.2, { display: 'none' }, { display: 'inline-block' });
-	  this.timeline.fromTo('.whats-the', 0.2, { display: 'none' }, { display: 'inline-block' });
-	  this.timeline.call(changeText, [], BoxAnimation.timeline, "+=0.2");
-	  this.timeline.call(function () {
-	    $('.text-fill').text('weather?');
-	  }, [], this, "+=0.2");
-	  this.timeline.to('.last-item', 0.1, { x: -5, display: 'inline-block' }, "+=0.1");
-
-	  this.scroller = scrollama();
-	  this.scroller.setup({
-	    step: '.omega-box-wrapper .text',
-	    debug: true,
-	    offset: 0.1
-	  }).onStepEnter(function (event) {
-	    _this.timeline.play(0);
-	  }).onStepExit(function (event) {
-	    _this.timeline.pause();
-	  });
-	}
-
-	function changeText() {
-	  var fakeWord = faker_1.random.word();
-	  console.log('changeText: ', fakeWord);
-	  jQuery('.text-fill').text(fakeWord);
-	}
-
-	function emptyText() {
-	  console.log('emptyText');
-	  $('.text-fill').text('');
-	}
-
 	function HelpAnimation() {
 	  var _this = this;
 
@@ -110576,7 +110544,7 @@
 
 	$(function () {
 	  var videoPanelClient = new VideoAnimation();
-	  var boxPanelClient = new BoxAnimation();
+	  // const boxPanelClient = new BoxAnimation();
 	  var helpPanelClient = new HelpAnimation();
 	  var heyPanelClient = new HeyAnimation();
 
@@ -110593,7 +110561,7 @@
 
 	  function resizeHandler() {
 	    videoPanelClient.scroller.resize();
-	    boxPanelClient.scroller.resize();
+	    // boxPanelClient.scroller.resize();
 	    helpPanelClient.scroller.resize();
 	    heyPanelClient.scroller.resize();
 	  }

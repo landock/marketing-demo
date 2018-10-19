@@ -17,7 +17,7 @@ import HeyAnimation from './HeyAnimation';
 
 $(function(){
   const videoPanelClient = new VideoAnimation();
-  const boxPanelClient = new BoxAnimation();
+  // const boxPanelClient = new BoxAnimation();
   const helpPanelClient = new HelpAnimation();
   const heyPanelClient = new HeyAnimation();
 
@@ -34,7 +34,7 @@ $(function(){
 
   function resizeHandler() {
     videoPanelClient.scroller.resize();
-    boxPanelClient.scroller.resize();
+    // boxPanelClient.scroller.resize();
     helpPanelClient.scroller.resize();
     heyPanelClient.scroller.resize();
   }

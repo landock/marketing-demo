@@ -1,15 +1,16 @@
 import scrollama from 'scrollama';
 
 function VideoAnimation() {
-  const videoElement = document.getElementsByTagName("video")[0];
+  const videoElement = document.getElementById("box-rotate");
   this.timeline = new TimelineMax({paused:true});
   this.scroller = scrollama();
 
-  $(videoElement).one('play', () => {
+  $('#base-ring-glow').one('canplay', () => {
+    videoElement.play();
     update(); //Start rendering
   });
 
-  $(videoElement).on('ended', () => {
+  $(videoElement).one('ended', () => {
     const container = $('.video-sprite-sheet');
 	  const canvases = container.find('canvas');
 	  const height = container[0].scrollHeight;
@@ -42,12 +43,14 @@ function VideoAnimation() {
 		    this.timeline.progress(event.progress);
       });
 
-   $('video').hide();
+    $('video').hide();
   });
 }
 
 function update() {
-  const video = document.getElementsByTagName("video")[0];
+
+  const video = document.getElementById("box-rotate");
+
   if(video.currentTime === video.duration) return;
 
   const newCanvas = document.createElement('canvas');

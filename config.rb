@@ -9,8 +9,8 @@ activate :directory_indexes
 activate :livereload
 activate :external_pipeline,
          :name => "rollup",
-         :command => (build? ? 'npx rollup -c' : 'npx rollup -c -w'),
-         :source => 'build/javascripts/bundle.js',
+         :command => (build? ? "npx rollup -c" : "npx rollup -c -w"),
+         :source => "build/",
          :latency => 2
 # Layouts
 # https://middlemanapp.com/basics/layouts/

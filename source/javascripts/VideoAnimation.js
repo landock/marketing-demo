@@ -2,22 +2,24 @@ import scrollama from 'scrollama';
 
 function VideoAnimation() {
   const videoElement = document.getElementById("box-rotate");
-  this.timeline = new TimelineMax({paused:true});
+  this.timeline = new TimelineMax({paused:true, useFrames: true,});
   this.scroller = scrollama();
 
   $('#base-ring-glow').one('canplay', () => {
     videoElement.play();
-    update(); //Start rendering
+    update(); 
   });
 
-  $(videoElement).one('ended', () => {
+  $(videoElement).one('ended', (event) => {
+    console.log(event);
     const container = $('.video-sprite-sheet');
-	  const canvases = container.find('canvas');
 	  const height = container[0].scrollHeight;
-
+	  const canvases = container.find('canvas');
 	  const lastCanvas = canvases.last();
 	  const canvasCount = canvases.length;
-    let duration = 10;
+    const loadingVideoElement = $('#base-ring-glow');
+    const mainVideoElement = $('#box-rotate');
+    const duration = 10;
     const hidden = { position: 'absolute', visibility: 'hidden' };
     const visible = { position: 'static', visibility: 'visible' };
 
@@ -31,24 +33,35 @@ function VideoAnimation() {
 	  
 	  this.scroller
       .setup({
-        step: document.querySelectorAll('.video-sprite-sheet'),
+        step: '.video-wrapper',
         progress: true,
-        threshold:1,
+        threshold:10,
         offset: 0.2,
       })
 	    .onStepEnter(event => {
-        console.log(event);
-        })
+        console.log('stepEnter', event);
+        loadingVideoElement[0].pause();
+        loadingVideoElement.hide();
+        container.show();
+      })
+	    .onStepExit(event => {
+        console.log('stepExit', event);
+
+        if(event.direction === 'up') {
+          loadingVideoElement[0].play();
+          loadingVideoElement.show();
+          container.hide();
+        }
+      })
 	    .onStepProgress(event => {
 		    this.timeline.progress(event.progress);
       });
 
-    $('video').hide();
+    mainVideoElement.hide();
   });
 }
 
 function update() {
-
   const video = document.getElementById("box-rotate");
 
   if(video.currentTime === video.duration) return;

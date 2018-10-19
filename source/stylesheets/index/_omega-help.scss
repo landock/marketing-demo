@@ -35,19 +35,21 @@
 
 .video-wrapper{
   height: 540px;
-  width: 418px;
+  width: 50%;
   overflow: hidden;
   video {
-
+    transform: translateX(-175px);
     // mobile
     // display: none;
   }
 
   .video-sprite-sheet{
+
     position:relative;
     display:inline-block;
     line-height:0;
     overflow: hidden;
+    transform: translateX(-175px);
     & > canvas {
       border: 0;
       display: inline-block;

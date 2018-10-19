@@ -24378,7 +24378,7 @@
 	  var _this = this;
 
 	  var videoElement = document.getElementById("box-rotate");
-	  this.timeline = new TimelineMax({ paused: true });
+	  this.timeline = new TimelineMax({ paused: true, useFrames: true });
 	  this.scroller = scrollama();
 
 	  $('#base-ring-glow').one('canplay', function () {
@@ -24404,17 +24404,21 @@
 	    .set({}, {}, "+=" + duration);
 
 	    _this.scroller.setup({
-	      step: document.querySelectorAll('.video-sprite-sheet'),
+	      step: '.video-wrapper',
 	      progress: true,
-	      threshold: 1,
-	      offset: 0.2
+	      threshold: 10,
+	      offset: 0.3
 	    }).onStepEnter(function (event) {
-	      console.log(event);
+	      console.log('stepEnter', event);
+	      $('#base-ring-glow')[0].pause();
+	      $('#base-ring-glow').hide();
+	    }).onStepExit(function (event) {
+	      console.log('stepExit', event);
 	    }).onStepProgress(function (event) {
 	      _this.timeline.progress(event.progress);
 	    });
 
-	    $('video').hide();
+	    $('#box-rotate').hide();
 	  });
 	}
 

@@ -7,7 +7,7 @@ import globals from "rollup-plugin-node-globals";
 export default {
   input: "source/javascripts/site.js",
   output: {
-    file: "source/javascripts/bundle.js",
+    file: "build/javascripts/bundle.js",
     name: "wink",
     format: "iife",
     sourcemap: true

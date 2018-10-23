@@ -35,18 +35,20 @@ function VideoAnimation() {
       .setup({
         step: '.omega-box-container + .box-copy',
         progress: true,
-        threshold:10,
-        offset: 0.8,
+        threshold:1,
+        offset: 0.6,
       })
 	    .onStepEnter(event => {
         console.log('stepEnter', event);
         loadingVideoElement[0].pause();
         loadingVideoElement.hide();
+        $('.omega-box-container').css('position','sticky').css('top', '0px');
         container.show();
       })
 	    .onStepExit(event => {
         console.log('stepExit', event);
 
+        $('.omega-box-container').removeAttr('style');
         if(event.direction === 'up') {
           loadingVideoElement[0].play();
           loadingVideoElement.show();

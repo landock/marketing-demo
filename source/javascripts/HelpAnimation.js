@@ -9,7 +9,6 @@ function HelpAnimation() {
   this.scroller.setup({
       step: '.help-animation-container',
       offset: 0.95,
-      debug:true,
       progress: true,
       threshold: 1
     })

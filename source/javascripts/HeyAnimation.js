@@ -18,7 +18,6 @@ function HeyAnimation() {
  this.scroller 
     .setup({
       step:[$('.omega-hey-container')[0]],
-      debug:true,
       offset: 0.3
     })
     .onStepEnter(event=>{

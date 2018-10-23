@@ -33,10 +33,10 @@ function VideoAnimation() {
 	  
 	  this.scroller
       .setup({
-        step: '.video-wrapper',
+        step: '.omega-box-container + .box-copy',
         progress: true,
         threshold:10,
-        offset: 0.2,
+        offset: 0.8,
       })
 	    .onStepEnter(event => {
         console.log('stepEnter', event);
@@ -54,6 +54,7 @@ function VideoAnimation() {
         }
       })
 	    .onStepProgress(event => {
+        console.log(event.progress)
 		    this.timeline.progress(event.progress);
       });
 

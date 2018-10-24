@@ -22,6 +22,7 @@ function VideoAnimation() {
     const duration = 10;
     const hidden = { position: 'absolute', visibility: 'hidden' };
     const visible = { position: 'static', visibility: 'visible' };
+    let count = 0;
 
     this.timeline
       .set(lastCanvas, hidden)
@@ -34,21 +35,22 @@ function VideoAnimation() {
 	  this.scroller
       .setup({
         step: '.omega-box-container + .box-copy',
+        threshold: 13,
         progress: true,
-        threshold:1,
-        offset: 0.6,
+        offset: 0.8,
       })
 	    .onStepEnter(event => {
         console.log('stepEnter', event);
         loadingVideoElement[0].pause();
         loadingVideoElement.hide();
-        $('.omega-box-container').css('position','sticky').css('top', '0px');
+        TweenMax.set('.omega-box-container', {position: 'sticky', top: 10});
+        TweenMax.to('.omega-box-container',0.125, {autoAlpha:1});
         container.show();
       })
 	    .onStepExit(event => {
         console.log('stepExit', event);
 
-        $('.omega-box-container').removeAttr('style');
+        (count % 2) && TweenMax.to('.omega-box-container',0.125, {autoAlpha: 0});
         if(event.direction === 'up') {
           loadingVideoElement[0].play();
           loadingVideoElement.show();
@@ -58,6 +60,9 @@ function VideoAnimation() {
 	    .onStepProgress(event => {
         console.log(event.progress)
 		    this.timeline.progress(event.progress);
+        if(event.progress === 1) {
+          count += 1;
+        }
       });
 
     mainVideoElement.hide();

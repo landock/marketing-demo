@@ -24,8 +24,8 @@ function VideoAnimation() {
     const visible = { position: 'static', visibility: 'visible' };
     let count = 0;
     
-    const anotherTimeline = new TimelineMax({paused:true, useFrames: true,})
-      .to('.omega-box-container', 1000, {y: 600})
+    const anotherTimeline = new TimelineMax({paused:true, useFrames: true})
+      .to('.omega-box-container', 6000, {y: 700, ease: Power0.easeInOut});
 
     this.timeline
       .set(lastCanvas, hidden)
@@ -37,10 +37,9 @@ function VideoAnimation() {
 	  
 	  this.scroller
       .setup({
-        step: '.omega-box-container + .box-copy',
-        threshold: 1,
+        step: '.omega-box-container',
         progress: true,
-        offset: 0.8,
+        offset: 0.25,
       })
 	    .onStepEnter(event => {
         console.log('stepEnter', event);
@@ -50,8 +49,6 @@ function VideoAnimation() {
       })
 	    .onStepExit(event => {
         console.log('stepExit', event);
-
-
         container.show();
         if(event.direction === 'up') {
           loadingVideoElement[0].play();
@@ -62,7 +59,7 @@ function VideoAnimation() {
 	    .onStepProgress(event => {
         console.log(event.progress)
 		    this.timeline.progress(event.progress);
-		    anotherTimeline.progress(event.progress);
+		    // anotherTimeline.timeScale(2).progress(event.progress);
         if(event.progress === 1) {
           count += 1;
         }
@@ -82,7 +79,6 @@ function update() {
   const newCtx = newCanvas.getContext('2d');
   newCanvas.width = video.videoWidth;
   newCanvas.height = video.videoHeight;
-  newCtx.imageSmoothingEnabled = true;
   newCtx.drawImage(video, 0, 0, video.videoWidth, video.videoHeight);   
 
   element.append(newCanvas);

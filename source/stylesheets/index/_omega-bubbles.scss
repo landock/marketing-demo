@@ -1,0 +1,28 @@
+.omega-bubble {
+  background: $white;
+  border-radius: 10px;
+  max-width: 300px;
+  opacity: 0;
+  padding: 15px 0;
+  position: absolute;
+  text-align: center;
+  width: 80%;
+
+  .content {
+    align-items: center;
+    display: flex;
+    margin: 0 auto;
+    width: 90%;
+
+    > img {
+      // height: 24px; // 48px;
+      width: 10%; // 36px;
+    }
+
+    > .text {
+      font-size: 14px;
+      padding: 5px 0 0 10px;
+      text-align: left;
+    }
+  }
+}

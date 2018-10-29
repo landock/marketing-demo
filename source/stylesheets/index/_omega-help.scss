@@ -37,8 +37,18 @@
   height: 540px;
   width: 960px;
   overflow: hidden;
+
+  @include media-breakpoint-down(md) {
+    height: 270px;
+    width: 480px;
+  }
+
+  @include media-breakpoint-down(sm) {
+    height: 135px;
+    width: 240px;
+  }
   video {
-    transform: scale(0.9);
+    transform: scale(0.905);
     // mobile
     // display: none;
   }
@@ -54,6 +64,7 @@
       display: inline-block;
       position: absolute;
       visibility: hidden;
+      width: 100%;
     }
   }
 

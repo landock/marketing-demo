@@ -25,7 +25,7 @@ function VideoAnimation() {
     let count = 0;
     
     const anotherTimeline = new TimelineMax({paused:true, useFrames: true})
-      .to('.omega-box-container', 6000, {y: 700, ease: Power0.easeInOut});
+      .to('.box-copy', 6000, {paddingTop: 0, ease: Power3.easeInOut});
 
     this.timeline
       .set(lastCanvas, hidden)
@@ -39,7 +39,7 @@ function VideoAnimation() {
       .setup({
         step: '.omega-box-container',
         progress: true,
-        offset: 0.25,
+        offset: 0.2,
       })
 	    .onStepEnter(event => {
         console.log('stepEnter', event);
@@ -59,7 +59,7 @@ function VideoAnimation() {
 	    .onStepProgress(event => {
         console.log(event.progress)
 		    this.timeline.progress(event.progress);
-		    // anotherTimeline.timeScale(2).progress(event.progress);
+		    anotherTimeline.progress(event.progress);
         if(event.progress === 1) {
           count += 1;
         }

@@ -2,23 +2,26 @@
   .row {
     margin: 0 auto;
   }
-
-  img {
-    width: 100%;
-  }
 }
-
 
 .omega-usps-wrapper {
   display: flex;
   margin-top: 2rem;
 
-  .text {
+
+  > .text {
     @include ssn1--semibold;
     display: flex;
     flex-flow: column;
     justify-content: center;
     margin-left: 2rem;
+  }
+
+  > .img {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    position: relative;
   }
 
   &:nth-child(odd) {

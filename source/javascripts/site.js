@@ -1,6 +1,6 @@
 import jQuery from 'jquery';
 import debounce from 'lodash-es/debounce';
-import { TimelineMax, CSSPlugin, AttrPlugin } from "gsap/all"; 
+import { TimelineMax, CSSPlugin, AttrPlugin } from "gsap/all";
 import 'intersection-observer';
 
 const plugins = [ CSSPlugin, AttrPlugin ]; //without this, CSSPlugin & AttrPlugin may get dropped by your bundler
@@ -13,6 +13,7 @@ import VideoAnimation from './VideoAnimation';
 import BoxAnimation from './BoxAnimation';
 import HelpAnimation from './HelpAnimation';
 import HeyAnimation from './HeyAnimation';
+import UspsAnimation from './UspsAnimation';
 
 
 $(function(){
@@ -20,6 +21,7 @@ $(function(){
   // const boxPanelClient = new BoxAnimation();
   const helpPanelClient = new HelpAnimation();
   const heyPanelClient = new HeyAnimation();
+  const UspsPanelClient = new UspsAnimation();
 
   $('.ga-click-event').on('click', function() {
     var label = $(this).attr('ga-label');
@@ -42,7 +44,3 @@ $(function(){
   window.addEventListener("resize", debounce(resizeHandler, 200));
 
 });
-
-
-
-

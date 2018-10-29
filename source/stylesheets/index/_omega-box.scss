@@ -1,10 +1,9 @@
 .omega-box-container {
   display: flex;
-  margin-top: 6rem;
+  margin-top: 12rem;
   width:100%;
 
-  min-height:800px;
-  height:1200px;
+  height:1600px;
   z-index: 1;
 
   .row {
@@ -12,7 +11,7 @@
   }
   .container {
     position: sticky;
-    top: 0;
+    top: 15%;
     height: 540px;
   }
 }
@@ -22,7 +21,6 @@
   margin: 2rem auto;
   flex-direction: column;
   align-items: center;
-  transition: all 0.2s linear;
 
   .text {
     display: flex;
@@ -47,10 +45,5 @@
   z-index: 2;
   width: 80%;
   margin: auto;
-  position:relative;
-  & > div {
-    position: absolute;
-    bottom: -210px;
-    left: 0;
-  }
+  padding-top:33%;
 }

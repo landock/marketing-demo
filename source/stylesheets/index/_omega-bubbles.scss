@@ -1,3 +1,14 @@
+.omega-bubble-wrapper {
+  display: flex;
+
+  > .img {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    position: relative;
+  }
+}
+
 .omega-bubble {
   background: $white;
   border-radius: 10px;

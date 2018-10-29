@@ -13,7 +13,7 @@ import VideoAnimation from './VideoAnimation';
 import BoxAnimation from './BoxAnimation';
 import HelpAnimation from './HelpAnimation';
 import HeyAnimation from './HeyAnimation';
-import UspsAnimation from './UspsAnimation';
+import BubbleAnimation from './BubbleAnimation';
 
 
 $(function(){
@@ -21,7 +21,7 @@ $(function(){
   // const boxPanelClient = new BoxAnimation();
   const helpPanelClient = new HelpAnimation();
   const heyPanelClient = new HeyAnimation();
-  const UspsPanelClient = new UspsAnimation();
+  const BubbleAnimations = new BubbleAnimation();
 
   $('.ga-click-event').on('click', function() {
     var label = $(this).attr('ga-label');

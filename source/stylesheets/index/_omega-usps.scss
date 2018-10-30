@@ -31,4 +31,12 @@
   &:nth-child(even) {
     flex-flow: row-reverse;
   }
+
+  .omega-bubble {
+    &.one {
+      left: 9%;
+      top: 3%;
+      width: 66%;
+    }
+  }
 }

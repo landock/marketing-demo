@@ -5,23 +5,54 @@
 
   .row {
     margin: 0 auto;
+    padding-bottom: 3rem;
+    padding-top: 3rem;
+
+    &:first {
+      @include media-breakpoint-down(md) {
+        padding-bottom: 0;
+      }
+    }
+
+    &:last-child {
+      @include media-breakpoint-down(md) {
+        padding-top: 0;
+      }
+    }
+  }
+
+  .column  {
+    @include media-breakpoint-down(md) {
+      text-align: center;
+    }
   }
 
   img {
     width: 100%;
   }
 
-  @include media-breakpoint-down(md) {
-    .one {
+  .one {
+    @include media-breakpoint-down(md) {
       order: 2;
     }
+  }
 
-    .two {
+  .two {
+    padding-bottom: 3rem;
+    padding-top: 3rem;
+
+    @include media-breakpoint-down(md) {
       order: 1;
+      padding-top: 0;
     }
+  }
 
-    .three {
+  .three {
+    padding-bottom: 3rem;
+
+    @include media-breakpoint-down(md) {
       order: 3;
+      padding-top: 6rem;
     }
   }
 }

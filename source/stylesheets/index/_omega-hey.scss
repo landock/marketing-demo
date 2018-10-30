@@ -10,6 +10,20 @@
   img {
     width: 100%;
   }
+
+  @include media-breakpoint-down(md) {
+    .one {
+      order: 2;
+    }
+
+    .two {
+      order: 1;
+    }
+
+    .three {
+      order: 3;
+    }
+  }
 }
 
 .omega-hey-wrapper {

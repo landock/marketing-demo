@@ -14,3 +14,24 @@
     line-height: 2.5rem;
   }
 }
+
+
+.visible-desktop {
+  display: block;
+}
+
+.visible-mobile {
+  display: none;
+}
+
+@include media-breakpoint-down(sm) {
+  .visible-mobile {
+    display: block;
+  }
+}
+
+@include media-breakpoint-down(sm) {
+  .visible-desktop {
+    display: none;
+  }
+}

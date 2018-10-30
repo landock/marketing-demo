@@ -8,6 +8,10 @@
   display: flex;
   margin-top: 2rem;
 
+  @include media-breakpoint-down(sm) {
+    display: block;
+  }
+
 
   > .text {
     @include ssn1--semibold;
@@ -24,7 +28,7 @@
     position: relative;
   }
 
-  &:nth-child(odd) {
+  &:nth-child(even) {
     flex-flow: row-reverse;
   }
 }

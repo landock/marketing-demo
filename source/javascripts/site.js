@@ -7,6 +7,7 @@ const plugins = [ CSSPlugin, AttrPlugin ]; //without this, CSSPlugin & AttrPlugi
 
 window.$ = jQuery;
 window.jQuery = jQuery;
+window.isMobile = false;
 
 
 import VideoAnimation from './VideoAnimation';
@@ -22,6 +23,8 @@ $(function(){
   const helpPanelClient = new HelpAnimation();
   const heyPanelClient = new HeyAnimation();
   const BubbleAnimations = new BubbleAnimation();
+  
+  window.isMobile = window.matchMedia("(max-width: 767.98px)").matches;
 
   $('.ga-click-event').on('click', function() {
     var label = $(this).attr('ga-label');

@@ -8,7 +8,7 @@ export default {
   input: "source/javascripts/site.js",
   output: {
     file: "build/javascripts/bundle.js",
-    name: "wink",
+    name: "marketingDemo",
     format: "iife",
     sourcemap: true
   },
@@ -18,7 +18,24 @@ export default {
       exclude: "node_modules/**" // only transpile our source code
     }),
     commonjs({
-      include: "node_modules/**"
+      include: "node_modules/**",
+
+      namedExports: {
+          // Gotcha: You need to
+          // explicitly name the exports
+          // because commonjs plugin is
+          // not smart enough to work
+          // with pixi.js Browserify v4 builds
+          'pixi.js': [
+              'VERSION',
+              'Application',
+              'Graphics',
+              'Sprite',
+              'BaseTexture',
+              'Texture',
+              'Transform'
+          ]
+      }
     }),
     globals(),
     builtins()

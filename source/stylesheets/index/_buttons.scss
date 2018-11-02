@@ -21,7 +21,8 @@
   margin: 0 auto;
   position: relative;
   text-align: center;
-  width: 65%;
+  display:flex;
+  overflow:hidden;
 
   // @include media-breakpoint-down(lg) {
   //   width: 50%;
@@ -32,15 +33,11 @@
   // }
 
   img {
-    width: 50%;
+    width: 100%;
 
     // @include media-breakpoint-down(md) {
     //   width: 80%;
     // }
-
-    @include media-breakpoint-down(md) {
-      width: 75%;
-    }
 
     // @include media-breakpoint-down(sm) {
     //   width: 100%;

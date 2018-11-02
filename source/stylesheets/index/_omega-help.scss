@@ -30,7 +30,6 @@
     text-align: center;
     width: 31%;
   }
-
 }
 
 .video-wrapper{
@@ -47,6 +46,7 @@
     height: 135px;
     width: 240px;
   }
+
   video {
     transform: scale(0.905);
     // mobile
@@ -59,6 +59,7 @@
     display:inline-block;
     line-height:0;
     overflow: hidden;
+
     & > canvas {
       border: 0;
       display: inline-block;

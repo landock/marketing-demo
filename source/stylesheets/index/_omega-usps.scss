@@ -19,6 +19,10 @@
     flex-flow: column;
     justify-content: center;
     margin-left: 2rem;
+
+    @include media-breakpoint-down(md) {
+      margin-left: 0;
+    }
   }
 
   > .img {

@@ -1,7 +1,7 @@
 .omega-box-container {
   display: flex;
   height: 1600px;
-  margin-top: 12rem;
+  // margin-top: 12rem;
   width: 100%;
   z-index: 1;
 
@@ -48,12 +48,14 @@
 
 .box-copy {
   margin: auto;
-  padding-top: 33%;
-  width: 80%;
+  // padding-top: 33%;
+  text-align: center;
+  width: 60%;
   z-index: 2;
 
 
   @include media-breakpoint-down(sm) {
     padding-top: 13%;
+    width: 80%;
   }
 }

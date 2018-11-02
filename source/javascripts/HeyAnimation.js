@@ -1,5 +1,22 @@
 import scrollama from 'scrollama';
 
+function handleStepEnter(response) {
+  const bubbles = $('.omega-hey--text');
+
+  setTimeout(function(){
+    $(bubbles[0]).addClass('zoomIn animated').removeClass('opacity-0');
+  }, 500);
+  setTimeout(function(){
+    $(bubbles[2]).addClass('zoomIn animated').removeClass('opacity-0');
+  }, 1000);
+  setTimeout(function(){
+    $(bubbles[1]).addClass('zoomIn animated').removeClass('opacity-0');
+  }, 1500);
+  setTimeout(function(){
+    $(bubbles[3]).addClass('zoomIn animated').removeClass('opacity-0');
+  }, 1500);
+}
+
 function HeyAnimation() {
   this.scroller = scrollama();
   this.timeline = new TimelineMax({paused: true});
@@ -15,19 +32,24 @@ function HeyAnimation() {
   this.timeline.add(outerCircle);
   this.timeline.add(innerCircle, "-=1.6");
 
- this.scroller 
-    .setup({
-      step:[$('.omega-hey-container')[0]],
-      offset: 0.3
-    })
-    .onStepEnter(event=>{
-      this.timeline.restart();
-    })
-    .onStepExit(event => {
+ this.scroller
+  .setup({
+    step:[$('.omega-hey-container')[0]],
+    offset: 0.3
+  })
+  .onStepEnter(event=>{
+    this.timeline.restart();
+  })
+  .onStepExit(event => {
 
-      this.timeline.seek(0);
-      this.timeline.pause();
-    });
+    this.timeline.seek(0);
+    this.timeline.pause();
+  });
+
+  this.scroller.setup({
+     step: '.omega-hey--wrapper'
+   })
+   .onStepEnter(handleStepEnter)
 }
 
 export default HeyAnimation;

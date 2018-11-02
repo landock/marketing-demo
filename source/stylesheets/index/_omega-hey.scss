@@ -1,4 +1,4 @@
-.omega-hey-container {
+.omega-hey--wrapper {
   background-image: radial-gradient(#27253c, #1d1a21); // center, outside color
   color: $white;
   min-height: 700px;
@@ -70,7 +70,6 @@
   }
 }
 
-
-.hey-text {
-  padding: 1rem;
+.opacity-0 {
+  opacity: 0;
 }

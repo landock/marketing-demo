@@ -5,16 +5,16 @@ function handleStepEnter(response) {
 
   setTimeout(function(){
     $(bubbles[0]).addClass('zoomIn animated').removeClass('opacity-0');
-  }, 500);
+  }, 250);
   setTimeout(function(){
     $(bubbles[2]).addClass('zoomIn animated').removeClass('opacity-0');
-  }, 1000);
+  }, 500);
   setTimeout(function(){
     $(bubbles[1]).addClass('zoomIn animated').removeClass('opacity-0');
-  }, 1500);
+  }, 1000);
   setTimeout(function(){
     $(bubbles[3]).addClass('zoomIn animated').removeClass('opacity-0');
-  }, 2000);
+  }, 1500);
 }
 
 function HeyAnimation() {

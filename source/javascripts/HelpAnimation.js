@@ -23,7 +23,7 @@ function HelpAnimation() {
 
   this.scroller.setup({
      step: '.omega-help--title-subtitle',
-     offset: 0.75,
+     offset: 1,
    })
    .onStepEnter(handleStepEnter);
 }

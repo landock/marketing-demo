@@ -14,7 +14,7 @@ function handleStepEnter(response) {
   }, 1500);
   setTimeout(function(){
     $(bubbles[3]).addClass('zoomIn animated').removeClass('opacity-0');
-  }, 1500);
+  }, 2000);
 }
 
 function HeyAnimation() {

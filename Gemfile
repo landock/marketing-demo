@@ -8,3 +8,4 @@ gem 'middleman-livereload'
 gem "contentful_middleman"
 gem "rake", "~> 12.3"
 gem "aws-sdk", "~> 2.11"
+gem 'org-ruby'

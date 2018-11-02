@@ -3,23 +3,63 @@ import * as PIXI from 'pixi.js';
 
 export default function ButtonColorAnimation() {
 
-  const image1 = new PIXI.Application({width: 321, height: 531});
-  const image2 = new PIXI.Application({width: 321, height: 531});
+  const pixiConfig = {
+    autoResize: true,
+    resolution: devicePixelRatio
+  };
+
+  const image1 = new PIXI.Application(pixiConfig);
+  this.pixiApp = image1;
   const image1Sprite = new PIXI.Sprite.fromImage("/images/index/buttons-crop.png");
   const image2Sprite = new PIXI.Sprite.fromImage("/images/index/buttons-crop.png");
-  image1Sprite.scale.x = image2Sprite.scale.x = 0.55;
-  image1Sprite.scale.y = image2Sprite.scale.y = 0.55;
+  const image3Sprite = new PIXI.Sprite.fromImage("/images/index/buttons-crop.png");
 
+  image1.renderer.backgroundColor = 0xFFFFFF;
+
+  image1Sprite.width = image2Sprite.width = image3Sprite.width = 321;
+  image1Sprite.height = image2Sprite.height = image3Sprite.height =529;
+
+  image1Sprite.y= image2Sprite.y = image3Sprite.y = -1 ;
+  image1Sprite.x = -1;
+  image2Sprite.x = 319;
+  image3Sprite.x = 639;
   image1.stage.addChild(image1Sprite);
-  image2.stage.addChild(image2Sprite);
+  image1.stage.addChild(image2Sprite);
+  image1.stage.addChild(image3Sprite);
   this.timeline = new TimelineMax({paused: true});
-  this.timeline.to(image1Sprite, 1, {pixi: {hue: -60}, ease: Power2.easeInOut});
-  this.timeline.to(image2Sprite, 1, {pixi: {hue: 250}, ease: Power2.easeInOut});
+  this.timeline.set(image1Sprite, {alpha: 0});
+  this.timeline.set(image2Sprite, {alpha: 0});
+  this.timeline.set(image3Sprite, {alpha: 0});
+  this.timeline.to(image2Sprite, 2, {alpha: 1, ease: Power2.easeOut});
+  this.timeline.to(image1Sprite, 1, {alpha: 1, ease: Power2.easeOut}, "-=1");
+  this.timeline.to(image3Sprite, 1, {alpha: 1,  ease: Power2.easeOut});
+  this.timeline.to(image1Sprite, 1, { pixi: {hue: -60}}, "-=0.5");
+  this.timeline.to(image3Sprite, 1, { pixi: {hue: 130}}, "-=0.5");
 
 
-  $('.buttons-animation-container').prepend(`<div class="sprite1">`).find('.sprite1').append(image1.view);
-  $('.buttons-animation-container').prepend(`<div class="sprite2">`).find('.sprite2').append(image2.view);
+
+  $('.buttons-animation-container').append(image1.view);
+
+  image1.renderer.resize(image1.view.parentNode.clientWidth, image1.view.parentNode.clientHeight);
   
-  this.timeline.play(0);
+  const scaleFactor = Math.min($(image1.view).width() /image1.stage.width, $(image1.view).height() / image1.stage.height);
+
+  image1.stage.scale.x = scaleFactor;
+  image1.stage.scale.y = scaleFactor;
+
+  this.scroller = scrollama();
+
+  this.scroller.setup({
+    step: '.buttons-animation-container',
+    offset: 0.6,
+  })
+  .onStepEnter(event => {
+    console.log(event);
+    this.timeline.play(0);
+  })
+  .onStepExit(event => {
+    console.log(event);
+    this.timeline.pause();
+  });
 
 }

@@ -20,7 +20,7 @@ import ButtonColorAnimation from './ButtonColorAnimation';
 
 $(function(){
   const videoPanelClient = new VideoAnimation();
-  // const boxPanelClient = new BoxAnimation();
+  const boxPanelClient = new BoxAnimation();
   const helpPanelClient = new HelpAnimation();
   const heyPanelClient = new HeyAnimation();
   const BubbleAnimations = new BubbleAnimation();
@@ -40,22 +40,25 @@ $(function(){
   });
 
   function resizeHandler() {
+    resizeButtonAnimations();
     videoPanelClient.scroller.resize();
-    // boxPanelClient.scroller.resize();
+    boxPanelClient.scroller.resize();
     helpPanelClient.scroller.resize();
     heyPanelClient.scroller.resize();
-    console.log(ButtonColorAnimations.pixiApp.view.style);
+  }
+
+  function resizeButtonAnimations(){
+    console.log($(ButtonColorAnimations.pixiApp.view.parentNode).width(), $(ButtonColorAnimations.pixiApp.view.parentNode).height());
+
+    let scaleFactor = Math.min( ($(ButtonColorAnimations.pixiApp.view.parentNode).width() / ButtonColorAnimations.pixiApp.stage.width), ($(ButtonColorAnimations.pixiApp.view.parentNode).height() / ButtonColorAnimations.pixiApp.stage.height));
 
     ButtonColorAnimations.pixiApp.renderer.resize(ButtonColorAnimations.pixiApp.view.parentNode.clientWidth, ButtonColorAnimations.pixiApp.view.parentNode.clientHeight)
 
-    let scaleFactor = Math.min( $(ButtonColorAnimations.pixiApp.view).width() / ButtonColorAnimations.pixiApp.stage.width, $(ButtonColorAnimations.pixiApp.view).height() / ButtonColorAnimations.pixiApp.stage.height);
-
-
-    console.log(scaleFactor);
-
-    ButtonColorAnimations.pixiApp.stage.scale.x = ButtonColorAnimations.pixiApp.stage.scale.y = scaleFactor;
+    if(scaleFactor < 1) {
+      ButtonColorAnimations.pixiApp.stage.scale.x = ButtonColorAnimations.pixiApp.stage.scale.y = scaleFactor ;
+    }
   }
 
-  window.addEventListener("resize", debounce(resizeHandler, 200));
+  window.addEventListener("resize", debounce(resizeHandler, 100));
 
 });

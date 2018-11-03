@@ -19,22 +19,32 @@ export default function ButtonColorAnimation() {
   image1Sprite.width = image2Sprite.width = image3Sprite.width = 321;
   image1Sprite.height = image2Sprite.height = image3Sprite.height =529;
 
-  image1Sprite.y= image2Sprite.y = image3Sprite.y = -1 ;
+  image1Sprite.y = image2Sprite.y = image3Sprite.y = -1 ;
+
   image1Sprite.x = -1;
   image2Sprite.x = 319;
   image3Sprite.x = 639;
+
   image1.stage.addChild(image1Sprite);
   image1.stage.addChild(image2Sprite);
   image1.stage.addChild(image3Sprite);
+  const filterConfig = {pixi: {saturation: 0, contrast:1.2}};
   this.timeline = new TimelineMax({paused: true});
-  this.timeline.set(image1Sprite, {alpha: 0});
-  this.timeline.set(image2Sprite, {alpha: 0});
-  this.timeline.set(image3Sprite, {alpha: 0});
-  this.timeline.to(image2Sprite, 2, {alpha: 1, ease: Power2.easeOut});
-  this.timeline.to(image1Sprite, 1, {alpha: 1, ease: Power2.easeOut}, "-=1");
-  this.timeline.to(image3Sprite, 1, {alpha: 1,  ease: Power2.easeOut});
-  this.timeline.to(image1Sprite, 1, { pixi: {hue: -60}}, "-=0.5");
-  this.timeline.to(image3Sprite, 1, { pixi: {hue: 130}}, "-=0.5");
+  this.timeline.set(image1Sprite, filterConfig );
+  this.timeline.set(image2Sprite, filterConfig);
+  this.timeline.set(image3Sprite, filterConfig);
+  // this.timeline.to(image2Sprite, 1, {alpha: 1, ease: Power2.easeOut});
+  // this.timeline.to(image1Sprite, 0.5, {alpha: 1, ease: Power2.easeOut}, "-=1");
+  // this.timeline.to(image3Sprite, 0.5, {alpha: 1,  ease: Power2.easeOut});
+
+  this.timeline.to(image1Sprite, 0.25, { pixi: {hue: -60}}, "+=0.5")
+    .to(image1Sprite, 0.25,  { pixi: {hue: -30}});
+
+  this.timeline.to(image2Sprite, 0.25,  { pixi: {hue: -120}})
+    .to(image3Sprite, 0.25, { pixi: {hue: 140}});
+
+  this.timeline.to(image3Sprite, 0.25,  { pixi: {hue: 170}})
+    .to(image3Sprite, 0.25, { pixi: {hue: 60}});
 
 
 

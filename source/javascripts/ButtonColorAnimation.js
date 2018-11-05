@@ -28,7 +28,7 @@ export default function ButtonColorAnimation() {
   image1.stage.addChild(image1Sprite);
   image1.stage.addChild(image2Sprite);
   image1.stage.addChild(image3Sprite);
-  const filterConfig = {pixi: {saturation: 0, contrast:1.2}};
+  const filterConfig = {pixi: {saturation: 0, contrast:1}};
   this.timeline = new TimelineMax({paused: true});
   this.timeline.set(image1Sprite, filterConfig );
   this.timeline.set(image2Sprite, filterConfig);

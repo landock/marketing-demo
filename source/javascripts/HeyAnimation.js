@@ -29,27 +29,22 @@ function HeyAnimation() {
   innerCircle.fromTo('.inner-circle', 0.3, {ease:Bounce.easeOut,strokeWidth: 10}, {ease:Bounce.easeOut,strokeWidth: 24});
   innerCircle.to('.inner-circle', 0.3, {ease:Bounce.easeOut,strokeWidth: 10}, "-=0.2");
 
-  this.timeline.add(outerCircle);
-  this.timeline.add(innerCircle, "-=1.6");
+  this.timeline.add(outerCircle).add(innerCircle, "-=1.6");
 
  this.scroller
   .setup({
-    step:[$('.omega-hey-container')[0]],
+    step:'.omega-hey-container',
     offset: 0.3
   })
   .onStepEnter(event=>{
-    this.timeline.restart();
+    this.timeline.play(0);
+    handleStepEnter();
   })
   .onStepExit(event => {
 
-    this.timeline.seek(0);
     this.timeline.pause();
   });
 
-  this.scroller.setup({
-     step: '.omega-hey--wrapper'
-   })
-   .onStepEnter(handleStepEnter)
 }
 
 export default HeyAnimation;

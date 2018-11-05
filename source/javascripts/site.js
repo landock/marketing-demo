@@ -16,6 +16,7 @@ import HelpAnimation from './HelpAnimation';
 import HeyAnimation from './HeyAnimation';
 import BubbleAnimation from './BubbleAnimation';
 import ButtonColorAnimation from './ButtonColorAnimation';
+import AppSongsAnimation from './AppSongsAnimation';
 
 
 $(function(){
@@ -25,7 +26,8 @@ $(function(){
   const heyPanelClient = new HeyAnimation();
   const BubbleAnimations = new BubbleAnimation();
   const ButtonColorAnimations = new ButtonColorAnimation();
-
+  const AppSongsAnimations = new AppSongsAnimation();
+  
   window.isMobile = window.matchMedia("(max-width: 767.98px)").matches;
 
   $('.ga-click-event').on('click', function() {
@@ -45,6 +47,9 @@ $(function(){
     boxPanelClient.scroller.resize();
     helpPanelClient.scroller.resize();
     heyPanelClient.scroller.resize();
+    BubbleAnimations.scroller.resize();
+    ButtonColorAnimations.scroller.resize();
+    AppSongsAnimations.scroller.resize();
   }
 
   function resizeButtonAnimations(){

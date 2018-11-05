@@ -12,8 +12,23 @@
   margin: 40% auto 0;
   position: relative;
   text-align: center;
+  .video-container {
+    position: relative;
+    min-height: 1100px;
+    width: 500px;
+    margin: auto;
+    & > * {
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+    video {
+      z-index: 10;
+      transform: scale(0.88) translateY(72px);
+    }
+  }
 
   img {
-    width: 50%;
+    width: 100%;
   }
 }

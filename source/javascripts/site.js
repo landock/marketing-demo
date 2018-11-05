@@ -25,7 +25,7 @@ $(function(){
   const heyPanelClient = new HeyAnimation();
   const BubbleAnimations = new BubbleAnimation();
   const ButtonColorAnimations = new ButtonColorAnimation();
-  
+
   window.isMobile = window.matchMedia("(max-width: 767.98px)").matches;
 
   $('.ga-click-event').on('click', function() {

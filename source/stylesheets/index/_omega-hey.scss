@@ -23,6 +23,7 @@
 
   .column  {
     @include media-breakpoint-down(md) {
+      display: none;
       text-align: center;
     }
   }
@@ -33,7 +34,7 @@
 
   .one {
     @include media-breakpoint-down(md) {
-      order: 2;
+      // order: 2;
     }
   }
 
@@ -42,6 +43,7 @@
     padding-top: 3rem;
 
     @include media-breakpoint-down(md) {
+      display: block;
       order: 1;
       padding-top: 0;
     }
@@ -51,8 +53,8 @@
     padding-bottom: 3rem;
 
     @include media-breakpoint-down(md) {
-      order: 3;
-      padding-top: 6rem;
+      // order: 3;
+      // padding-top: 6rem;
     }
   }
 }

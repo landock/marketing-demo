@@ -10,14 +10,14 @@ export default function ButtonColorAnimation() {
 
   const image1 = new PIXI.Application(pixiConfig);
   this.pixiApp = image1;
-  const image1Sprite = new PIXI.Sprite.fromImage("/images/index/buttons-crop.png");
-  const image2Sprite = new PIXI.Sprite.fromImage("/images/index/buttons-crop.png");
-  const image3Sprite = new PIXI.Sprite.fromImage("/images/index/buttons-crop.png");
+  const image1Sprite = new PIXI.Sprite.fromImage("/images/index/button-single.png");
+  const image2Sprite = new PIXI.Sprite.fromImage("/images/index/button-single.png");
+  const image3Sprite = new PIXI.Sprite.fromImage("/images/index/button-single.png");
 
   image1.renderer.backgroundColor = 0xFFFFFF;
 
   image1Sprite.width = image2Sprite.width = image3Sprite.width = 321;
-  image1Sprite.height = image2Sprite.height = image3Sprite.height =529;
+  image1Sprite.height = image2Sprite.height = image3Sprite.height = 476;
 
   image1Sprite.y = image2Sprite.y = image3Sprite.y = -1 ;
 
@@ -51,7 +51,7 @@ export default function ButtonColorAnimation() {
   $('.buttons-animation-container').append(image1.view);
 
   image1.renderer.resize(image1.view.parentNode.clientWidth, image1.view.parentNode.clientHeight);
-  
+
   const scaleFactor = Math.min($(image1.view).width() /image1.stage.width, $(image1.view).height() / image1.stage.height);
 
   image1.stage.scale.x = scaleFactor;

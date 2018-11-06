@@ -4,16 +4,16 @@ function handleStepEnter(response) {
   const bubbles = $('.omega-hey--text');
 
   setTimeout(function(){
-    $(bubbles[0]).addClass('zoomIn animated').removeClass('opacity-0');
+    $(bubbles[0]).addClass('fadeInUp animated').removeClass('opacity-0');
   }, 250);
   setTimeout(function(){
-    $(bubbles[2]).addClass('zoomIn animated').removeClass('opacity-0');
+    $(bubbles[2]).addClass('fadeInUp animated').removeClass('opacity-0');
   }, 500);
   setTimeout(function(){
-    $(bubbles[1]).addClass('zoomIn animated').removeClass('opacity-0');
+    $(bubbles[1]).addClass('fadeInUp animated').removeClass('opacity-0');
   }, 1000);
   setTimeout(function(){
-    $(bubbles[3]).addClass('zoomIn animated').removeClass('opacity-0');
+    $(bubbles[3]).addClass('fadeInUp animated').removeClass('opacity-0');
   }, 1500);
 }
 

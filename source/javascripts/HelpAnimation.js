@@ -1,7 +1,11 @@
 import scrollama from 'scrollama';
 
 function handleStepEnter(response) {
-  $('.omega-help-subtitle').addClass('animated fadeInDown');
+  $('.omega-help-title').addClass('animated fadeInUp');
+
+  setTimeout(function(){
+    $('.omega-help-subtitle').addClass('animated fadeInUp');
+  }, 750);
 }
 
 function HelpAnimation() {

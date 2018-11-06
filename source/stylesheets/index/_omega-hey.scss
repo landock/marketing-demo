@@ -23,8 +23,13 @@
 
   .column  {
     @include media-breakpoint-down(md) {
-      display: none;
       text-align: center;
+    }
+  }
+
+  .omega-hey--text {
+    @include media-breakpoint-down(md) {
+      display: none;
     }
   }
 
@@ -34,7 +39,13 @@
 
   .one {
     @include media-breakpoint-down(md) {
-      // order: 2;
+      order: 2;
+    }
+
+    .omega-hey--text:first-child {
+      @include media-breakpoint-down(md) {
+        display: block;
+      }
     }
   }
 
@@ -43,7 +54,6 @@
     padding-top: 3rem;
 
     @include media-breakpoint-down(md) {
-      display: block;
       order: 1;
       padding-top: 0;
     }
@@ -53,8 +63,7 @@
     padding-bottom: 3rem;
 
     @include media-breakpoint-down(md) {
-      // order: 3;
-      // padding-top: 6rem;
+      display: none;
     }
   }
 }
@@ -63,8 +72,6 @@
   display: flex;
   margin-top: 2rem;
 
-  .whats-the-text {
-  }
   .text {
     display: flex;
     flex-flow: column;
@@ -74,7 +81,14 @@
   }
 }
 
-.text-animation{
+.text-animation {
+  min-height: 38px;
+
+  h2 {
+    @include media-breakpoint-down(md) {
+      min-height: 76px;
+    }
+  }
 }
 
 .hey-text {

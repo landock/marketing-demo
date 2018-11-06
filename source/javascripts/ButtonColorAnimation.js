@@ -4,6 +4,8 @@ import * as PIXI from 'pixi.js';
 export default function ButtonColorAnimation() {
 
   const pixiConfig = {
+    transparent:true,
+    antialias:true,
     autoResize: true,
     resolution: devicePixelRatio
   };
@@ -14,7 +16,11 @@ export default function ButtonColorAnimation() {
   const image2Sprite = new PIXI.Sprite.fromImage("/images/index/button-single.png");
   const image3Sprite = new PIXI.Sprite.fromImage("/images/index/button-single.png");
 
-  image1.renderer.backgroundColor = 0xFFFFFF;
+  image1.renderer.plugins.interaction.autoPreventDefault = false;
+  image1.view.style['touch-action'] = 'auto';
+  image1Sprite.interactive = image1Sprite.buttonMode = true;
+  image2Sprite.interactive = image2Sprite.buttonMode = true;
+  image3Sprite.interactive = image3Sprite.buttonMode = true;
 
   image1Sprite.width = image2Sprite.width = image3Sprite.width = 321;
   image1Sprite.height = image2Sprite.height = image3Sprite.height = 476;

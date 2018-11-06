@@ -55,14 +55,15 @@ $(function(){
   }
 
   function resizeButtonAnimations(){
-    console.log($(ButtonColorAnimations.pixiApp.view.parentNode).width(), $(ButtonColorAnimations.pixiApp.view.parentNode).height());
+    const { view, stage, renderer } = ButtonColorAnimations.pixiApp;
+    console.log($(view.parentNode).width(), $(view.parentNode).height());
 
-    let scaleFactor = Math.min( ($(ButtonColorAnimations.pixiApp.view.parentNode).width() / ButtonColorAnimations.pixiApp.stage.width), ($(ButtonColorAnimations.pixiApp.view.parentNode).height() / ButtonColorAnimations.pixiApp.stage.height));
+    let scaleFactor = Math.min( ($(view.parentNode).width() / stage.width), ($(view.parentNode).height() / stage.height));
 
-    ButtonColorAnimations.pixiApp.renderer.resize(ButtonColorAnimations.pixiApp.view.parentNode.clientWidth, ButtonColorAnimations.pixiApp.view.parentNode.clientHeight)
+    renderer.resize(view.parentNode.clientWidth, view.parentNode.clientHeight)
 
     if(scaleFactor < 1) {
-      ButtonColorAnimations.pixiApp.stage.scale.x = ButtonColorAnimations.pixiApp.stage.scale.y = scaleFactor ;
+      stage.scale.x = stage.scale.y = scaleFactor ;
     }
   }
 

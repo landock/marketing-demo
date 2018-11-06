@@ -6,12 +6,12 @@ function BoxAnimation() {
   // this.timeline.staggerFromTo('.text-animation h1 span',0.2, {display:'none'}, {display:'inline-block'}, 0.3);
   this.timeline.fromTo('.whats-the-text',0.1, {visibility: 'hidden'}, {visibility: 'visible'});
   this.timeline.call(changeText, [], BoxAnimation.timeline, "+=0.2");
-  this.timeline.call(() => {$('.text-fill').text('Where\'s the closet sandwich place')}, [], this, "+=0.2");
   this.timeline.call(() => {$('.text-fill').text('What\'s the best Sushi in LA?')}, [], this, "+=0.2");
-  this.timeline.call(() => {$('.text-fill').text('Where\'s the best vegan flatbread?')}, [], this, "+=0.2");
   this.timeline.call(() => {$('.text-fill').text('Play Beastie Boys')}, [], this, "+=0.2");
-  this.timeline.call(() => {$('.text-fill').text('What\'s the best Gastropub?')}, [], this, "+=0.2");
-  this.timeline.call(() => {$('.text-fill').text('What movies are playing in Culver City?')}, [], this, "+=0.2");
+  this.timeline.call(() => {$('.text-fill').text('What movies are playing near me?')}, [], this, "+=0.2");
+  this.timeline.call(() => {$('.text-fill').text('Where\'s the best vegan flatbread?')}, [], this, "+=0.2");
+  this.timeline.call(() => {$('.text-fill').text('Where\'s the best Gastropub?')}, [], this, "+=0.2");
+  this.timeline.call(() => {$('.text-fill').text('Where\'s the closet sandwich place')}, [], this, "+=0.2");
 
   this.scroller = scrollama();
   this.scroller

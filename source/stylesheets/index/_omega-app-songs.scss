@@ -17,6 +17,11 @@
     min-height: 1100px;
     width: 500px;
     margin: auto;
+    @include media-breakpoint-down(sm) {
+      min-height:600px;
+      max-width: 273px;
+
+    }
     & > * {
       position: absolute;
       top: 0;
@@ -24,7 +29,7 @@
     }
     video {
       z-index: 10;
-      transform: scale(0.88) translateY(72px);
+      transform: scale(0.88) translateY(8%);
     }
   }
 

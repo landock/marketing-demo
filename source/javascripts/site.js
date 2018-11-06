@@ -17,7 +17,7 @@ import HeyAnimation from './HeyAnimation';
 import BubbleAnimation from './BubbleAnimation';
 import ButtonColorAnimation from './ButtonColorAnimation';
 import AppSongsAnimation from './AppSongsAnimation';
-
+import Things2SayAnimation from './Things2SayAnimation';
 
 $(function(){
   const videoPanelClient = new VideoAnimation();
@@ -27,6 +27,7 @@ $(function(){
   const BubbleAnimations = new BubbleAnimation();
   const ButtonColorAnimations = new ButtonColorAnimation();
   const AppSongsAnimations = new AppSongsAnimation();
+  const Things2SayAnimations = new Things2SayAnimation();
   
   window.isMobile = window.matchMedia("(max-width: 767.98px)").matches;
 
@@ -50,6 +51,7 @@ $(function(){
     BubbleAnimations.scroller.resize();
     ButtonColorAnimations.scroller.resize();
     AppSongsAnimations.scroller.resize();
+    Things2SayAnimations.scroller.resize();
   }
 
   function resizeButtonAnimations(){

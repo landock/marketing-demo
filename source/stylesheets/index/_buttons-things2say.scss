@@ -28,6 +28,20 @@
     }
   }
 
+  .weather-video{
+    position: absolute;
+    z-index: 10;
+    top: 16.1%;
+    left: 13.25%;
+    width: 38.1%;
+
+    @include media-breakpoint-down(sm) {
+      left: -18.5%;
+      width: 51.1%;
+      top: 18.1%;
+    }
+  }
+
   .section--title-subtitle {
     bottom: -7%;
     left: 57%;
@@ -60,4 +74,5 @@
       }
     }
   }
+
 }

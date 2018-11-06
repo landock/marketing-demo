@@ -30,6 +30,10 @@
     display: flex;
     justify-content: center;
     position: relative;
+
+    @include media-breakpoint-down(md) {
+      margin-bottom: 1rem;
+    }
   }
 
   &:nth-child(even) {

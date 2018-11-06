@@ -25,9 +25,8 @@
   position: relative;
   display:flex;
   overflow:hidden;
-  background: white;
+  filter: saturate(0);
 
-  
   @include media-breakpoint-down(md) {
     height: 50%;
   }

@@ -18,6 +18,7 @@ export default function ButtonColorAnimation() {
 
   image1.renderer.plugins.interaction.autoPreventDefault = false;
   image1.view.style['touch-action'] = 'auto';
+
   image1Sprite.interactive = image1Sprite.buttonMode = true;
   image2Sprite.interactive = image2Sprite.buttonMode = true;
   image3Sprite.interactive = image3Sprite.buttonMode = true;
@@ -34,23 +35,22 @@ export default function ButtonColorAnimation() {
   image1.stage.addChild(image1Sprite);
   image1.stage.addChild(image2Sprite);
   image1.stage.addChild(image3Sprite);
+
   const filterConfig = {pixi: {saturation: 0, contrast:1}};
+
   this.timeline = new TimelineMax({paused: true});
   this.timeline.set(image1Sprite, filterConfig );
   this.timeline.set(image2Sprite, filterConfig);
   this.timeline.set(image3Sprite, filterConfig);
-  // this.timeline.to(image2Sprite, 1, {alpha: 1, ease: Power2.easeOut});
-  // this.timeline.to(image1Sprite, 0.5, {alpha: 1, ease: Power2.easeOut}, "-=1");
-  // this.timeline.to(image3Sprite, 0.5, {alpha: 1,  ease: Power2.easeOut});
 
-  this.timeline.to(image1Sprite, 0.25, { pixi: {hue: -60}}, "+=0.5")
-    .to(image1Sprite, 0.25,  { pixi: {hue: -30}});
+  this.timeline.to(image1Sprite, 0.15, { pixi: {hue: -60}}, "+=0.5")
+    .to(image1Sprite, 0.15,  { pixi: {hue: -30}});
 
-  this.timeline.to(image2Sprite, 0.25,  { pixi: {hue: -120}})
-    .to(image3Sprite, 0.25, { pixi: {hue: 140}});
+  this.timeline.to(image2Sprite, 0.15,  { pixi: {hue: -120}})
+    .to(image3Sprite, 0.15, { pixi: {hue: 140}});
 
-  this.timeline.to(image3Sprite, 0.25,  { pixi: {hue: 170}})
-    .to(image3Sprite, 0.25, { pixi: {hue: 60}});
+  this.timeline.to(image3Sprite, 0.15,  { pixi: {hue: 170}})
+    .to(image3Sprite, 0.15, { pixi: {hue: 60}});
 
 
 
@@ -66,15 +66,16 @@ export default function ButtonColorAnimation() {
   this.scroller = scrollama();
 
   this.scroller.setup({
-    step: '.buttons-animation-container',
-    offset: 0.6,
+    step: '.buttons-container',
   })
   .onStepEnter(event => {
     console.log(event);
+    $('.buttons-animation-container').css('filter', 'saturate(90%)');
     this.timeline.play(0);
   })
   .onStepExit(event => {
     console.log(event);
+    $('.buttons-animation-container').css('filter', 'saturate(0)');
     this.timeline.pause();
   });
 

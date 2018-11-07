@@ -20,16 +20,14 @@ function HelpAnimation() {
     progress: true,
     threshold: 1
   })
+  .onStepExit(event => {
+    event.direction === "down" && handleStepEnter();
+  })
   .onStepProgress(event => {
     this.timeline.pause();
     this.timeline.progress(event.progress);
   });
 
-  this.scroller.setup({
-     step: '.omega-help--title-subtitle',
-     offset: 1,
-   })
-   .onStepEnter(handleStepEnter);
 }
 
 export default  HelpAnimation;

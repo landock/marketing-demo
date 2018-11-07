@@ -1,5 +1,6 @@
 .buttons-things2say-container {
   display: flex;
+  overflow:hidden;
 
   @include media-breakpoint-down(md) {
     margin-top: 7rem;

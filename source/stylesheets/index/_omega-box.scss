@@ -47,12 +47,9 @@
 }
 
 .box-copy {
-  margin: auto;
-  // padding-top: 33%;
   text-align: center;
   width: 60%;
   z-index: 2;
-
 
   @include media-breakpoint-down(sm) {
     padding-top: 13%;

@@ -23,12 +23,8 @@
 .buttons-animation-container {
   margin: 0 auto;
   position: relative;
-  display:flex;
-  overflow:hidden;
+  display: flex;
+  overflow: hidden;
   filter: saturate(0);
-
-  @include media-breakpoint-down(md) {
-    height: 50%;
-  }
-
+  height: 53%;
 }

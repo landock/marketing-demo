@@ -1,19 +1,25 @@
-.omega-couch-wrapper {
-  .omega-bubble {
-    &.one {
-      left: 7%;
-      top: 10%;
-    }
+.omega-couch-container {
+  overflow:hidden;
+  width: 100%;
 
-    &.two {
-      bottom: 10%;
-      left: 20%;
+  .omega-couch-wrapper {
+    .omega-bubble {
+      &.one {
+        left: 7%;
+        top: 10%;
+      }
 
-    }
+      &.two {
+        bottom: 10%;
+        left: 20%;
 
-    &.three {
-      right: 10%;
-      top: 40%;
+      }
+
+      &.three {
+        right: 10%;
+        top: 40%;
+      }
     }
   }
+
 }

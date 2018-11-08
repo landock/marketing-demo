@@ -12,6 +12,7 @@ export default function ButtonColorAnimation() {
 
   const image1 = new PIXI.Application(pixiConfig);
   this.pixiApp = image1;
+  $('.buttons-animation-container').append(image1.view);
   const image1Sprite = new PIXI.Sprite.fromImage("/images/index/button-single.png");
   const image2Sprite = new PIXI.Sprite.fromImage("/images/index/button-single.png");
   const image3Sprite = new PIXI.Sprite.fromImage("/images/index/button-single.png");
@@ -23,14 +24,15 @@ export default function ButtonColorAnimation() {
   image2Sprite.interactive = image2Sprite.buttonMode = true;
   image3Sprite.interactive = image3Sprite.buttonMode = true;
 
-  image1Sprite.width = image2Sprite.width = image3Sprite.width = 321;
-  image1Sprite.height = image2Sprite.height = image3Sprite.height = 476;
+  const imageRatio = 789/532; //original image dimensions
+  image1Sprite.width = image2Sprite.width = image3Sprite.width = image1.view.parentNode.clientWidth / 3;
+  image1Sprite.height = image2Sprite.height = image3Sprite.height = image1Sprite.width * imageRatio;
 
-  image1Sprite.y = image2Sprite.y = image3Sprite.y = -1 ;
+  image1Sprite.y = image2Sprite.y = image3Sprite.y = 0;
 
-  image1Sprite.x = -1;
-  image2Sprite.x = 319;
-  image3Sprite.x = 639;
+  image1Sprite.x = 0;
+  image2Sprite.x = image1Sprite.width;
+  image3Sprite.x = image2Sprite.x * 2;
 
   image1.stage.addChild(image1Sprite);
   image1.stage.addChild(image2Sprite);
@@ -53,12 +55,10 @@ export default function ButtonColorAnimation() {
     .to(image3Sprite, 0.15, { pixi: {hue: 60}});
 
 
-
-  $('.buttons-animation-container').append(image1.view);
-
   image1.renderer.resize(image1.view.parentNode.clientWidth, image1.view.parentNode.clientHeight);
+  console.log(image1.view)
 
-  const scaleFactor = Math.min($(image1.view).width() /image1.stage.width, $(image1.view).height() / image1.stage.height);
+  const scaleFactor = Math.min($(image1.view).width() / image1.stage.width, image1.stage.width / $(image1.view).width());
 
   image1.stage.scale.x = scaleFactor;
   image1.stage.scale.y = scaleFactor;

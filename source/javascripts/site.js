@@ -56,15 +56,25 @@ $(function(){
 
   function resizeButtonAnimations(){
     const { view, stage, renderer } = ButtonColorAnimations.pixiApp;
-    console.log($(view.parentNode).width(), $(view.parentNode).height());
+    // console.log($(view.parentNode).width(), $(view.parentNode).height(), view.width, view.scale);
 
-    let scaleFactor = Math.min( ($(view.parentNode).width() / stage.width), ($(view.parentNode).height() / stage.height));
+    // let scaleFactor = Math.min( ($(view.parentNode).width() / stage.width), ( stage.width) / $(view.parentNode).width());
 
-    renderer.resize(view.parentNode.clientWidth, view.parentNode.clientHeight)
+    // renderer.resize(view.parentNode.clientWidth, view.parentNode.clientHeight);
 
-    if(scaleFactor < 1) {
-      stage.scale.x = stage.scale.y = scaleFactor ;
-    }
+    // console.log($(view.parentNode).width(), $(view.parentNode).height(), view.width, view.height);
+    // if(scaleFactor < 1) {
+    //   stage.scale.x = stage.scale.y = scaleFactor ;
+    // }
+
+
+    const imageRatio = 789/532; //original image dimensions
+    const [image1Sprite, image2Sprite, image3Sprite] = stage.children;
+    image1Sprite.width = image2Sprite.width = image3Sprite.width = view.parentNode.clientWidth / 3;
+    image1Sprite.height = image2Sprite.height = image3Sprite.height = image1Sprite.width * imageRatio;
+    image1Sprite.x = 0;
+    image2Sprite.x = image1Sprite.width;
+    image3Sprite.x = image2Sprite.x * 2;
   }
 
   window.addEventListener("resize", debounce(resizeHandler, 100));

@@ -154463,9 +154463,9 @@
 	  var image1 = new lib_2(pixiConfig);
 	  this.pixiApp = image1;
 	  $('.buttons-animation-container').append(image1.view);
-	  var image1Sprite = new lib_4.fromImage("/images/index/button-single.png");
-	  var image2Sprite = new lib_4.fromImage("/images/index/button-single.png");
-	  var image3Sprite = new lib_4.fromImage("/images/index/button-single.png");
+	  var image1Sprite = new lib_4.fromImage("images/index/button-single.png");
+	  var image2Sprite = new lib_4.fromImage("images/index/button-single.png");
+	  var image3Sprite = new lib_4.fromImage("images/index/button-single.png");
 
 	  image1.renderer.plugins.interaction.autoPreventDefault = false;
 	  image1.view.style['touch-action'] = 'auto';

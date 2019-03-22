@@ -2441,102 +2441,102 @@
   font-style: normal; }
 @font-face {
   font-family: 'SharpSansNo1 Black';
-  src: url("/fonts/SharpSansNo1-Black.otf") format("opentype");
+  src: url("../fonts/SharpSansNo1-Black.otf") format("opentype");
   font-weight: normal;
   font-style: normal; }
 @font-face {
   font-family: 'SharpSansNo1 Black Italic';
-  src: url("/fonts/SharpSansNo1-BlackItalic.otf") format("opentype");
+  src: url("../fonts/SharpSansNo1-BlackItalic.otf") format("opentype");
   font-weight: normal;
   font-style: normal; }
 @font-face {
   font-family: 'SharpSansNo1 Bold';
-  src: url("/fonts/SharpSansNo1-Bold.otf") format("opentype");
+  src: url("../fonts/SharpSansNo1-Bold.otf") format("opentype");
   font-weight: normal;
   font-style: normal; }
 @font-face {
   font-family: 'SharpSansNo1 Bold Italic';
-  src: url("/fonts/SharpSansNo1-BoldItalic.otf") format("opentype");
+  src: url("../fonts/SharpSansNo1-BoldItalic.otf") format("opentype");
   font-weight: normal;
   font-style: normal; }
 @font-face {
   font-family: 'SharpSansNo1 Book';
-  src: url("/fonts/SharpSansNo1-Book.otf") format("opentype");
+  src: url("../fonts/SharpSansNo1-Book.otf") format("opentype");
   font-weight: normal;
   font-style: normal; }
 @font-face {
   font-family: 'SharpSansNo1 Book Italic';
-  src: url("/fonts/SharpSansNo1-BookItalic.otf") format("opentype");
+  src: url("../fonts/SharpSansNo1-BookItalic.otf") format("opentype");
   font-weight: normal;
   font-style: normal; }
 @font-face {
   font-family: 'SharpSansNo1 Extrabold';
-  src: url("/fonts/SharpSansNo1-Extrabold.otf") format("opentype");
+  src: url("../fonts/SharpSansNo1-Extrabold.otf") format("opentype");
   font-weight: normal;
   font-style: normal; }
 @font-face {
   font-family: 'SharpSansNo1 Extrabold Italic';
-  src: url("/fonts/SharpSansNo1-ExtraboldItalic.otf") format("opentype");
+  src: url("../fonts/SharpSansNo1-ExtraboldItalic.otf") format("opentype");
   font-weight: normal;
   font-style: normal; }
 @font-face {
   font-family: 'SharpSansNo1 Hairline';
-  src: url("/fonts/SharpSansNo1-Hairline.otf") format("opentype");
+  src: url("../fonts/SharpSansNo1-Hairline.otf") format("opentype");
   font-weight: normal;
   font-style: normal; }
 @font-face {
   font-family: 'SharpSansNo1 Hairline Italic';
-  src: url("/fonts/SharpSansNo1-HairlineItalic.otf") format("opentype");
+  src: url("../fonts/SharpSansNo1-HairlineItalic.otf") format("opentype");
   font-weight: normal;
   font-style: normal; }
 @font-face {
   font-family: 'SharpSansNo1 Light';
-  src: url("/fonts/SharpSansNo1-Light.otf") format("opentype");
+  src: url("../fonts/SharpSansNo1-Light.otf") format("opentype");
   font-weight: normal;
   font-style: normal; }
 @font-face {
   font-family: 'SharpSansNo1 Light Italic';
-  src: url("/fonts/SharpSansNo1-LightItalic.otf") format("opentype");
+  src: url("../fonts/SharpSansNo1-LightItalic.otf") format("opentype");
   font-weight: normal;
   font-style: normal; }
 @font-face {
   font-family: 'SharpSansNo1 Medium';
-  src: url("/fonts/SharpSansNo1-Medium.otf") format("opentype");
+  src: url("../fonts/SharpSansNo1-Medium.otf") format("opentype");
   font-weight: normal;
   font-style: normal; }
 @font-face {
   font-family: 'SharpSansNo1 Medium Italic';
-  src: url("/fonts/SharpSansNo1-MediumItalic.otf") format("opentype");
+  src: url("../fonts/SharpSansNo1-MediumItalic.otf") format("opentype");
   font-weight: normal;
   font-style: normal; }
 @font-face {
   font-family: 'SharpSansNo1 Semibold';
-  src: url("/fonts/SharpSansNo1-Semibold.otf") format("opentype");
+  src: url("../fonts/SharpSansNo1-Semibold.otf") format("opentype");
   font-weight: normal;
   font-style: normal; }
 @font-face {
   font-family: 'SharpSansNo1 Semibold Italic';
-  src: url("/fonts/SharpSansNo1-SemiboldItalic.otf") format("opentype");
+  src: url("../fonts/SharpSansNo1-SemiboldItalic.otf") format("opentype");
   font-weight: normal;
   font-style: normal; }
 @font-face {
   font-family: 'SharpSansNo1 Thin';
-  src: url("/fonts/SharpSansNo1-Thin.otf") format("opentype");
+  src: url("../fonts/SharpSansNo1-Thin.otf") format("opentype");
   font-weight: normal;
   font-style: normal; }
 @font-face {
   font-family: 'SharpSansNo1 Thin Italic';
-  src: url("/fonts/SharpSansNo1-ThinItalic.otf") format("opentype");
+  src: url("../fonts/SharpSansNo1-ThinItalic.otf") format("opentype");
   font-weight: normal;
   font-style: normal; }
 @font-face {
   font-family: 'SharpSansNo1 Ultrathin';
-  src: url("/fonts/SharpSansNo1-Ultrathin.otf") format("opentype");
+  src: url("../fonts/SharpSansNo1-Ultrathin.otf") format("opentype");
   font-weight: normal;
   font-style: normal; }
 @font-face {
   font-family: 'SharpSansNo1 Ultrathin Italic';
-  src: url("/fonts/SharpSansNo1-UltrathinItalic.otf") format("opentype");
+  src: url("../fonts/SharpSansNo1-UltrathinItalic.otf") format("opentype");
   font-weight: normal;
   font-style: normal; }
 html,

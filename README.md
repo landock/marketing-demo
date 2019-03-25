@@ -1,6 +1,6 @@
 # Marketing Demo
 
-Super sick marketing site...
+[Super sick marketing site](https://landock.github.io/marketing-demo)
 
 ## Installation
 
